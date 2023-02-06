@@ -1,0 +1,33 @@
+body{
+  Font-family:"Sofia sans", sans-serif;
+  color: black;
+  margin: 0px;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+h1{font-size:37.50px;;}
+h2{font-size:30px ;}
+h3{font-size:24px ;}
+h4{font-size:19.20px ;}
+h5{font-size:15.36px ;}
+h6,p{font-size:12.29px ;}
+
+*{
+  Margin:0;
+  padding:0;
+  box-sizing:border-box;
+
+}
+
+.MenuContainer{
+  font-weight:560
+}
+
+a{
+  text-decoration:none;
+  color: black;
+  font-size: 16px;
+}
