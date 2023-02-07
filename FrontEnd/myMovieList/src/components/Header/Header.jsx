@@ -3,6 +3,7 @@ import "./Header.css";
 import { rightMenu } from "../../const/rightMenu";
 import { leftMenu } from "../../const/leftMenu";
 import { rightMenuLoggedIn } from "../../const/rightMenuLoggedIn";
+import Button from "../Button/Button";
 
 export default function Header() {
   return (
@@ -17,6 +18,7 @@ export default function Header() {
             {leftMenuItem.label}
           </h3>
         ))}
+        <Button className={"btn"}/>
       </div>
       <div className="rightMenu">
         {rightMenu.map((rightMenuItem, index) => (
