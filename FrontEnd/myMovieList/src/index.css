@@ -1,7 +1,19 @@
 body{
   Font-family:"Sofia sans", sans-serif;
-  color: black;
+  color: whitesmoke;
   margin: 0px;
+  background-color: var(--black);
+}
+
+:root { 
+  /* CSS HEX */
+--black:#0a0a0a;
+--white: #eaeaeaff;
+--gray01: #1f1f1f;
+--blue: #0431cfff;
+--green: #ccf38fff;
+--gray03: #4a4a4aff;
+
 }
 
 :focus-visible {

@@ -1,0 +1,15 @@
+.smallBtn {
+ height: 20px;
+ width: 20px;
+ border-radius:50%;
+ border:transparent;
+ background-color: black;
+}
+
+.bigBtn {
+    height:30px;
+    width: 30px;
+    border-radius:50%;
+    border:transparent;
+    background-color: #d6ff96;
+}

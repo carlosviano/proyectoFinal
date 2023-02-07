@@ -1,35 +1,30 @@
-import { Link } from "react-router-dom";
+import { GearIcon, PersonIcon } from "@primer/octicons-react";
+import ArrowButton from "../Buttons/ArrowButton/ArrowButton";
 import "./Header.css";
-import { rightMenu } from "../../const/rightMenu";
-import { leftMenu } from "../../const/leftMenu";
-import { rightMenuLoggedIn } from "../../const/rightMenuLoggedIn";
-import Button from "../Button/Button";
 
 export default function Header() {
   return (
-    <div className="MenuContainer">
-      <div className="leftMenu">
-        {leftMenu.map((leftMenuItem, index) => (
-          <h3
-            href={leftMenuItem.path}
-            className={leftMenuItem.className}
-            key={index}
-          >
-            {leftMenuItem.label}
-          </h3>
-        ))}
-        <Button className={"btn"}/>
+    <div className="headerMainContainer">
+      <div className="headerContainerLeft">
+        <div className="LeftTitle">
+          <h5>Home page</h5>
+        </div>
+        <div className="leftButton">
+          <ArrowButton className="smallBtn" size={14} arrowFill={"white"} />
+        </div>
       </div>
-      <div className="rightMenu">
-        {rightMenu.map((rightMenuItem, index) => (
-          <a
-            href={rightMenuItem.path}
-            className={rightMenuItem.className}
-            key={index}
-          >
-            {rightMenuItem.label}
-          </a>
-        ))}
+      <div className="headerContainerMiddle">
+        <div className="middleContent">
+          <h5>My Lists</h5>
+        </div>
+      </div>
+      <div className="headerContainerRight">
+        <div className="userIcon">
+          <PersonIcon size={24} fill={"gray"} />
+        </div>
+        <div className="settingsIcon">
+          <GearIcon size={24} fill={"gray"} />
+        </div>
       </div>
     </div>
   );
