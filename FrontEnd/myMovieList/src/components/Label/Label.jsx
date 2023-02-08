@@ -1,10 +1,10 @@
-import "./label.css";
+import "./Label.css";
 
-export default function Label({ title }) {
+export default function Label({ title, className }) {
   return (
-    <div className="labelContainer">
+    <div className={className}>
       <div className="labelTitle">
-        <h5>{title}</h5>
+        <h6>{title}</h6>
       </div>
     </div>
   );

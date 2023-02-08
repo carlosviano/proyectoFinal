@@ -1,5 +1,4 @@
-.cardNoImage {
-    height: 480px;
+.bannerNoImage {
     width:640px;
     border:1px solid var(--gray03);
     border-radius: 16px;
@@ -7,23 +6,23 @@
     margin-left:32px;   
     padding:16px
 }
-.cardNoImageHeader {
+.bannerNoImageHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.cardNoImageCTA h1{
+.bannerNoImageCTA h1{
     font-weight: 300;
 
 }
 
-.cardNoImageBody {
+.bannerNoImageBody {
     display:flex;
     flex-direction: column;
 }
 
-.cardNoImageBodyFirst, .cardNoImageBodySecond {
+.bannerNoImageBodyFirst, .bannerNoImageBodySecond {
     display: flex;
     padding: 0px 16px;
 }
@@ -38,7 +37,7 @@
     padding-right: 16px;
 }
 
-.CardNoImageNameViews {
+.bannerNoImageNameViews {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,6 +45,6 @@
     border-bottom: 1px solid var(--white);
 }
 
-.cardNoImageDescription {
+.bannerNoImageDescription {
     padding-top: 16px;
 }

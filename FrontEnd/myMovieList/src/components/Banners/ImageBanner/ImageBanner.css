@@ -1,4 +1,4 @@
-.imageCardContainer {
+.imageBannerContainer {
     width: 48%; 
     border-radius: 16px;
     overflow: hidden;
@@ -7,5 +7,11 @@
     background-position: 48%;
     -webkit-filter: brightness(1.5);
     filter: brightness(1.5);
+}
+
+.imageBannerHeader {
+    max-width: 40%;
+    display:flex;
+    padding:16px;
 }
 
