@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Card from "../Card/Card";
+import ImageCard from "../Cards/ImageCard/ImageCard";
+import NoImageCard from "../Cards/CardNoImage/CardNoImage";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 export default function Layout() {
@@ -7,7 +8,24 @@ export default function Layout() {
     <>
       <Header />
       <Outlet />
-      <Card className={"cardNoImage"} cardTitle="Latest Posts" />
+      <div
+        className="BannerContainer"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "0px 40px",
+        }}
+      >
+        <NoImageCard
+          cardLabel="Latest Posts"
+          cardTitle={"TOP"}
+          greenText={"100"}
+          userName={"Michael Geroge"}
+          postViews={"45k Views"}
+        />
+        <ImageCard />
+      </div>
+
       <Footer />
     </>
   );

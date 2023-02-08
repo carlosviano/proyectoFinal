@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  
+    padding: 0px 40px;
 }
 
 .headerContainerLeft {
@@ -12,39 +12,26 @@
     width: 20%;
     padding: 4px 8px 4px 8px;
     border-radius: 50px;
-    background-color: whitesmoke;
-    color: black;
+    background-color: var(--white);
+    color: var(--black);
     margin:32px;
     border-style:double;
     align-items: center;
 }
 
-.headerContainerMiddle {
-    display: flex;
-    justify-content: space-between;
-    width: 20%;
-    padding: 4px 8px 4px 8px;
-    border-radius: 50px;
-    border-color: gray;
-    background-color: rgb(23, 22, 22);
-    color: whitesmoke;
-    margin:16px;
-    border-style:double;
-    align-items: center;
-}
 
 .headerContainerRight {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:16px;
+    padding:16px 0px;
 }
 
 .userIcon {
     display:flex;
     width:32px;
     height:32px;
-    border: 2px solid gray;
+    border: 2px solid var(--gray03);
     border-radius:50%;
     align-items: center;
     justify-content: center;
@@ -55,7 +42,7 @@
     display:flex;
     width:32px;
     height:32px;
-    border: 2px solid gray;
+    border: 2px solid var(--gray03);
     border-radius:50%;
     align-items: center;
     justify-content: center;

@@ -7,15 +7,10 @@ export default function Header() {
     <div className="headerMainContainer">
       <div className="headerContainerLeft">
         <div className="LeftTitle">
-          <h5>Home page</h5>
+          <h6>Home page</h6>
         </div>
         <div className="leftButton">
           <ArrowButton className="smallBtn" size={14} arrowFill={"white"} />
-        </div>
-      </div>
-      <div className="headerContainerMiddle">
-        <div className="middleContent">
-          <h5>My Lists</h5>
         </div>
       </div>
       <div className="headerContainerRight">

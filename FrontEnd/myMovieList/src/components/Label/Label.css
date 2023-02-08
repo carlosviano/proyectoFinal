@@ -1,0 +1,16 @@
+.labelContainer {
+    display: flex;
+    justify-content: center;
+    max-width: 40%;
+    padding:4px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--white);
+    color: var(--white);
+    margin:24px;
+}
+
+.labelTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

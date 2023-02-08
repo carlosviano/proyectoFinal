@@ -1,5 +1,4 @@
 body{
-  Font-family:"Sofia sans", sans-serif;
   color: whitesmoke;
   margin: 0px;
   background-color: var(--black);
@@ -9,7 +8,7 @@ body{
   /* CSS HEX */
 --black:#0a0a0a;
 --white: #eaeaeaff;
---gray01: #1f1f1f;
+--gray01: #181717;
 --blue: #0431cfff;
 --green: #ccf38fff;
 --gray03: #4a4a4aff;
@@ -20,12 +19,12 @@ body{
   outline: none;
 }
 
-h1{font-size:37.50px;;}
-h2{font-size:30px ;}
-h3{font-size:24px ;}
-h4{font-size:19.20px ;}
-h5{font-size:15.36px ;}
-h6,p{font-size:12.29px ;}
+h1{font-size:67.34px;;}
+h2{font-size:50.52px ;}
+h3{font-size:37.90px ;}
+h4{font-size:28.43px ;}
+h5{font-size:21.33px ;}
+h6,p{font-size:16px ;}
 
 *{
   Margin:0;
