@@ -1,0 +1,33 @@
+.smallBannerContainer {
+    display: flex;
+    border: 2px solid var(--gray03);
+    width: 50%;
+    margin-left: 32px;
+    border-radius: 0px 16px;
+    background-color: var(--black);
+}
+
+.smallBannerImage{
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+.smallBannerImage img {
+    width: 100%;
+    border-radius: 8px;
+    -webkit-filter: brightness(0.6);
+    filter: brightness(0.6);
+}
+
+.smallBannerContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.smallBannerFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}

@@ -8,25 +8,6 @@ export default function Layout() {
     <>
       <Header />
       <Outlet />
-      <div
-        className="BannerContainer"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "0px 40px",
-        }}
-      >
-        <BannerNoImage
-          bannerLabel="Latest Posts"
-          bannerTitle={"TOP"}
-          greenText={"100"}
-          userName={"Michael Geroge"}
-          postViews={"45k Views"}
-        />
-        <ImageBanner />
-      </div>
-
-      <Footer />
     </>
   );
 }

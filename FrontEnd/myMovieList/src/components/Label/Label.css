@@ -7,11 +7,22 @@
     border: 1px solid var(--white);
     color: var(--white);
     margin:24px;
-    background-color: var(--gray01);
 }
 
 .labelTitle {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.labelContainerColoured{
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    padding:4px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--white);
+    color: var(--white);
+    margin:24px;
+    background-color: var(--gray01);
 }

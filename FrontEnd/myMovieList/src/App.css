@@ -3,7 +3,7 @@
     src: url(./Fonts/Kanit-Black.ttf);
 }
 
-h1, h2{
+h1, h2,h3{
     font-family: Kanit Black;
 }
 
@@ -12,7 +12,7 @@ h1, h2{
     src: url(./Fonts/Poppins-Thin.ttf);
 }
 
-h3,h4,h5,h6,p {
+h4,h5,h6,p {
     font-family: Poppins;
     font-weight: 700;
 }

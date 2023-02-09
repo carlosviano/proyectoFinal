@@ -10,7 +10,11 @@ export default function Header() {
           <h6>Home page</h6>
         </div>
         <div className="leftButton">
-          <ArrowButton className="smallBtn" size={14} arrowFill={"white"} />
+          <ArrowButton
+            className="smallBtnBlack"
+            arrowSize={14}
+            arrowFill={"white"}
+          />
         </div>
       </div>
       <div className="headerContainerRight">

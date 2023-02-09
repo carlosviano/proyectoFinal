@@ -2,22 +2,16 @@ import { ArrowRightIcon } from "@primer/octicons-react";
 import "./ArrowButton.css";
 
 export default function ArrowButton({
-  value,
   disabled,
   className,
-  size,
+  arrowSize,
   arrowFill,
 }) {
   return (
     <>
-      <button
-        type="submit"
-        disabled={disabled}
-        className={className}
-        value={value}
-      >
+      <button type="submit" disabled={disabled} className={className}>
         {" "}
-        <ArrowRightIcon size={size} fill={arrowFill} />
+        <ArrowRightIcon size={arrowSize} fill={arrowFill} />
       </button>
     </>
   );
