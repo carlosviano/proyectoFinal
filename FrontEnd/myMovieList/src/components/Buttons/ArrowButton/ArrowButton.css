@@ -37,3 +37,11 @@
     border:transparent;
     background-color:var(--green);
 }
+
+.bigBtnBlue {
+    height:40px;
+    width: 40px;
+    border-radius:50%;
+    border:transparent;
+    background-color:var(--blue);
+}

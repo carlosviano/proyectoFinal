@@ -7,8 +7,6 @@
 }
 
 .headerContainerLeft {
-    display: flex;
-    justify-content: space-between;
     width: 20%;
     padding: 4px 8px 4px 8px;
     border-radius: 50px;
@@ -19,6 +17,10 @@
     align-items: center;
 }
 
+.homePageLink {
+    display: flex;
+    justify-content: space-between;
+}
 
 .headerContainerRight {
     display: flex;
