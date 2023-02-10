@@ -35,7 +35,7 @@ export default function RegisterForm() {
     >
       {({ isSubmitting }) => (
         <Form className="formRegister">
-          <h5>Create Account</h5>
+          <h1>Create Account</h1>
           <div className="inputContainer">
             <h6>First Name</h6>
             <Input name="name" type="text" className={"registerInput"}></Input>

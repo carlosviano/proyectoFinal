@@ -1,38 +1,32 @@
 import Card from "../../components/Card/Card";
-import "./Series.css";
-import image from "../../components/Card/images/onePiece.jpg";
+import "./TopRatedMovies.css";
+import image from "../../components/Card/images/babylon.jpg";
 
-export default function Series() {
+export default function TopRatedMovies() {
   return (
     <>
-      <div className="seriesMainContainer">
+      <div className="moviesMainContainer">
         <Card
           image={image}
-          movieTitle={"One Piece"}
+          movieTitle={"Babylon"}
           movieRating={"9,8"}
           to={"/moviedetails"}
         />
         <Card
           image={image}
-          movieTitle={"One Piece"}
+          movieTitle={"Babylon"}
           movieRating={"9,8"}
           to={"/moviedetails"}
         />
         <Card
           image={image}
-          movieTitle={"One Piece"}
+          movieTitle={"Babylon"}
           movieRating={"9,8"}
           to={"/moviedetails"}
         />
         <Card
           image={image}
-          movieTitle={"One Piece"}
-          movieRating={"9,8"}
-          to={"/moviedetails"}
-        />
-        <Card
-          image={image}
-          movieTitle={"One Piece"}
+          movieTitle={"Babylon"}
           movieRating={"9,8"}
           to={"/moviedetails"}
         />

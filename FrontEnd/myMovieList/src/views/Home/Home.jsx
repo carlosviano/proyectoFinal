@@ -20,15 +20,16 @@ export default function Home() {
           bannerLabel="Latest Posts"
           bannerTitle={"TOP"}
           greenText={"100"}
-          userName={"Michael Geroge"}
-          postViews={"45k Views"}
+          userName={"Adrian Parrado Parry"}
+          postViews={"100k Views"}
           description={
-            "   Here we are: somehow its December already, 2022 has flow by at Mach10 speed, and its already time to tot up the very best movies of theyear"
+            " Torrente 3 fue toxico robotico asombroso manejo del lexico hoy el rap en espanol no solo se hace en nuevo Mexico"
           }
           bannerTitle2={"FILMS IN"}
           bannerTitle3={". THE BEST."}
         />
         <ImageBanner
+          to={"/moviedetails"}
           title={"Science-fiction"}
           className={"labelContainerColoured"}
           movieTitle={"Wednesday"}
@@ -38,8 +39,18 @@ export default function Home() {
       <div className="bannerContainerSecondary">
         <div className="bannerContainerSecondaryLeft"></div>
         <div className="bannerContainerSecondaryRight">
-          <SmallBanner img={img} footerTitle={"Go to all shows"} />
-          <SmallBanner img={img2} footerTitle={"Go to all movies"} />
+          <SmallBanner
+            imgLink={"/shows"}
+            img={img}
+            footerTitle={"Go to all shows"}
+            to={"/shows"}
+          />
+          <SmallBanner
+            imgLink={"/topratedmovies"}
+            img={img2}
+            footerTitle={"Go to all movies"}
+            to={"/topratedmovies"}
+          />
         </div>
       </div>
     </>

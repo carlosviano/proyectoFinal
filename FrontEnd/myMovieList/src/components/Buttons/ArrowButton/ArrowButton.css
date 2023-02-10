@@ -29,6 +29,13 @@
     border:transparent;
     background-color: var(--gray01);
 }
+.mediumBtnGreen {
+    height: 32px;
+    width: 32px;
+    border-radius:50%;
+    border:transparent;
+    background-color: var(--green);
+}
 
 .bigBtnGreen {
     height:40px;

@@ -1,0 +1,18 @@
+.verticalHeaderMainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100vh;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    position: fixed;
+    box-sizing: border-box;
+}
+
+.verticalHeaderContainerTitle {
+    padding: 16px;
+}
+
+.verticalHeaderMainContainer a {
+    color: var(--white);
+}

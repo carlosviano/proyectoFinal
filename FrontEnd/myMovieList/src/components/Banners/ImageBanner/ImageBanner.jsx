@@ -1,4 +1,3 @@
-import { TrophyIcon } from "@primer/octicons-react";
 import Label from "../../Label/Label";
 import "./ImageBanner.css";
 
@@ -7,6 +6,7 @@ export default function ImageBanner({
   className,
   movieTitle,
   movieDescription,
+  to,
 }) {
   return (
     <div className="imageBannerContainer">

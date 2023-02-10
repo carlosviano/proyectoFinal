@@ -1,0 +1,16 @@
+.verticalLayOutContainer {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.verticalLayOutSideBar {
+    width: 20%;
+    height: 100vh;
+    padding: 40px;
+}
+
+.verticalLayOutContent {
+    width: 80%;
+    height: 100vh;
+}

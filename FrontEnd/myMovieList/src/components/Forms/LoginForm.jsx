@@ -20,7 +20,7 @@ export default function LoginForm() {
     >
       {({ isSubmitting }) => (
         <Form className="formLogin">
-          <h5>Login</h5>
+          <h1>Login</h1>
           <div className="inputContainer">
             <h6>Username</h6>
             <Input name="username" type="username" className="loginInput" />

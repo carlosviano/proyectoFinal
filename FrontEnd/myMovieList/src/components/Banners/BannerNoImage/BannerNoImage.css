@@ -1,5 +1,5 @@
 .bannerNoImage {
-    width:640px;
+    width:40%;
     border:1px solid var(--gray03);
     border-radius: 16px;
     background-color: var(--gray01);
