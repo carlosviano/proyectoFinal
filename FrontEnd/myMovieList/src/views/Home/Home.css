@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.mainBodyContainer a:hover{
+    color: var(--black);
+} 
+
 .bannerContainerMainLeft {
     display: flex;
     flex-direction: column;

@@ -7,18 +7,16 @@ export default function Header() {
   return (
     <div className="headerMainContainer">
       <div className="headerContainerLeft">
-        <Link className="homePageLink" to={"/"}>
-          <div className="LeftTitle">
-            <h6>Home page</h6>
-          </div>
-          <div className="leftButton">
-            <ArrowButton
-              className="smallBtnBlack"
-              arrowSize={14}
-              arrowFill={"white"}
-            />
-          </div>
-        </Link>
+        <div className="LeftTitle">
+          <h6>Home page</h6>
+        </div>
+        <div className="leftButton">
+          <ArrowButton
+            className="smallBtnBlack"
+            arrowSize={14}
+            arrowFill={"white"}
+          />
+        </div>
       </div>
       <div className="headerContainerRight">
         <Link to={"/login"}>

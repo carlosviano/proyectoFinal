@@ -1,14 +1,14 @@
 import Card from "../../components/Card/Card";
-import "./Series.css";
-import image from "../../components/Card/images/onePiece.jpg";
+import "./Movies.css";
+import image from "../../components/Card/images/babylon.jpg";
 
-export default function Series() {
+export default function TopRatedMovies() {
   return (
     <>
-      <div className="seriesMainContainer">
+      <div className="moviesMainContainer">
         <Card
           image={image}
-          cardTitle={"One Piece"}
+          cardTitle={"Babylon"}
           movieRating={"9,8"}
           to={"/moviedetails"}
           title={"Add To List"}

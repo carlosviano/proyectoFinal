@@ -16,7 +16,7 @@ export default function VerticalHeader() {
           </Link>
         </div>
         <div className="verticalHeaderContainerTitle">
-          <Link to={"/topratedmovies"}>
+          <Link to={"/movies"}>
             <h5>Movies</h5>
           </Link>
         </div>

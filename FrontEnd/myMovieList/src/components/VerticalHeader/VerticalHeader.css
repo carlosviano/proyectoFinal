@@ -16,3 +16,7 @@
 .verticalHeaderMainContainer a {
     color: var(--white);
 }
+
+a:hover {
+    color: var(--green);
+  }

@@ -15,12 +15,10 @@
     margin:32px;
     border-style:double;
     align-items: center;
-}
-
-.homePageLink {
     display: flex;
     justify-content: space-between;
 }
+
 
 .headerContainerRight {
     display: flex;

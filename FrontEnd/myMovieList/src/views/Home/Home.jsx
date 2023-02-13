@@ -49,7 +49,7 @@ export default function Home() {
             imgLink={"/topratedmovies"}
             img={img2}
             footerTitle={"Go to all movies"}
-            to={"/topratedmovies"}
+            to={"/movies"}
           />
         </div>
       </div>
