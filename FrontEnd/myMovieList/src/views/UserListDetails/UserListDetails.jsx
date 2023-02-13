@@ -50,6 +50,51 @@ export default function UserListDetails() {
         type={"TV Series"}
         progress={"Currently Watching"}
       />
+      <ListCard
+        id={"1"}
+        altText={"hola"}
+        i={image}
+        name={"One Piece"}
+        rating={"9,2"}
+        type={"TV Series"}
+        progress={"Currently Watching"}
+      />
+      <ListCard
+        id={"1"}
+        altText={"hola"}
+        i={image}
+        name={"One Piece"}
+        rating={"9,2"}
+        type={"TV Series"}
+        progress={"Currently Watching"}
+      />
+      <ListCard
+        id={"1"}
+        altText={"hola"}
+        i={image}
+        name={"One Piece"}
+        rating={"9,2"}
+        type={"TV Series"}
+        progress={"Currently Watching"}
+      />
+      <ListCard
+        id={"1"}
+        altText={"hola"}
+        i={image}
+        name={"One Piece"}
+        rating={"9,2"}
+        type={"TV Series"}
+        progress={"Currently Watching"}
+      />
+      <ListCard
+        id={"1"}
+        altText={"hola"}
+        i={image}
+        name={"One Piece"}
+        rating={"9,2"}
+        type={"TV Series"}
+        progress={"Currently Watching"}
+      />
     </div>
   );
 }

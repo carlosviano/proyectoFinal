@@ -32,3 +32,20 @@ export const LoginFormSchema= yup.object().shape({
     .min(5,"Password must be at least 5 characters long")
     .required("Password field is required"),
 })
+
+export const EditProfileFormSchema = yup.object().shape({
+    name: yup
+    .string()
+    .min(3,"Name field must be at least 3 characters long"),
+    surname: yup
+    .string(),
+    email: yup
+    .string()
+    .email("Please enter a valid email address"),
+    password: yup
+    .string()
+    .min(5,"Password must be at least 5 characters long"),
+    username: yup
+    .string()
+    .min(5,"Username field must be atleast 5 characters long")
+})

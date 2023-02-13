@@ -28,8 +28,8 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="userList" element={<UserList />} />
         <Route path="userListDetails" element={<UserListDetails />} />
+        <Route path="editProfile" element={<EditProfile />} />
       </Route>
-      <Route path="editProfile" element={<EditProfile />} />
 
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />

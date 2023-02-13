@@ -6,6 +6,7 @@ export default function Register() {
     <div className="mainRegisterContainer">
       <div className="registerContentLeft"></div>
       <div className="registerContentRight">
+        <h1>Create Account</h1>
         <RegisterForm />
       </div>
     </div>

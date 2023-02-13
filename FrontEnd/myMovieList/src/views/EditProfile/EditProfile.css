@@ -1,0 +1,43 @@
+.editProfileMainContainer {
+    max-width: 100%;
+    height: 100vh;
+}
+
+.editProfileHeader {
+    margin-bottom: 32px;
+}
+
+.editProfileContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editProfileBody {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.editProfileBodyImage img {
+    max-width: 240px;
+    max-height: 240px;
+}
+
+.editProfileBodyImageInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+}
+
+.editProfileBodyImageInfoTitles p {
+    padding: 8px;
+}
+
+.editProfileBodyImageInfoInput {
+    padding: 8px;
+}
+
+.editProfileFooter {
+    margin-top: 32px;
+}

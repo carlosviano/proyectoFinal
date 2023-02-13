@@ -14,6 +14,78 @@ export default function Series() {
           title={"Add To List"}
           starFill={"gold"}
         />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
+        <Card
+          image={image}
+          cardTitle={"One Piece"}
+          movieRating={"9,8"}
+          to={"/moviedetails"}
+          title={"Add To List"}
+          starFill={"gold"}
+        />
       </div>
     </>
   );

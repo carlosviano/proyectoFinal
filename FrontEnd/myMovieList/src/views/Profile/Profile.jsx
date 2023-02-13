@@ -14,10 +14,12 @@ export default function Profile() {
             <ArrowLeftIcon size={24} />
           </div>
           <div className="profileHeaderUserPicture">
-            <img src={image}></img>
+            <img src={postImage}></img>
           </div>
           <div className="profileHeaderRightIcon">
-            <GearIcon size={24} fill={"gray"} />
+            <Link to={"/editProfile"}>
+              <GearIcon size={24} fill={"gray"} />
+            </Link>
           </div>
         </div>
         <div className="profileFirstBody">

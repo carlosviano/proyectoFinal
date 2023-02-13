@@ -1,5 +1,6 @@
 import ArrowButton from "../../Buttons/ArrowButton/ArrowButton";
 import Label from "../../Label/Label";
+import { Link } from "react-router-dom";
 import "./BannerNoImage.css";
 
 export default function BannerNoImage({
@@ -16,11 +17,13 @@ export default function BannerNoImage({
       <div className="bannerNoImageHeader">
         <Label title={"Latest Posts"} className={"labelContainer"} />
         <div className="bannerNoImageCTA">
-          <ArrowButton
-            className="bigBtnGreen"
-            arrowSize={24}
-            arrowFill="var(--black)"
-          />
+          <Link to={"/feed"}>
+            <ArrowButton
+              className="bigBtnGreen"
+              arrowSize={24}
+              arrowFill="var(--black)"
+            />
+          </Link>
         </div>
       </div>
       <div className="bannerNoImageBody">

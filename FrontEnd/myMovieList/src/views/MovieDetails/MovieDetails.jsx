@@ -37,13 +37,16 @@ export default function MovieDetails() {
         </div>
         <div className="mainDetailsFooter">
           <div className="mainDetailsFooterVideo">
-            <Link
-              to={
-                "https://www.youtube.com/watch?v=H4b2YjVWgqo&ab_channel=ONEPIECE%E5%85%AC%E5%BC%8FYouTube%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%AB"
-              }
-            >
-              <PlayIcon size={64} />
-            </Link>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/H4b2YjVWgqo"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <PlayIcon size={64} />
             <h3>Watch Trailer</h3>
           </div>
           <div className="mainDetailsFooterLabel">
