@@ -1,9 +1,4 @@
 import "./UserList.css";
-import "@splidejs/react-splide/css/sea-green";
-import image2 from "./images/l.jpg";
-import image3 from "./images/123.png";
-import image from "./images/luffyPP.jpg";
-import { Link } from "react-router-dom";
 
 export default function UserList() {
   return (

@@ -1,7 +1,7 @@
 import Label from "../../Label/Label";
 import "./ImageBanner.css";
 
-export default function ImageBanner({
+export default function ImageBannern({
   title,
   className,
   movieTitle,

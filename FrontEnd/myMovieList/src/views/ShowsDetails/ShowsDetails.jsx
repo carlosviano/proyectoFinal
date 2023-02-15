@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DetailsCard from "../../components/Card/DetailsCard";
+import "./ShowsDetails.css";
 
 export default function ShowsDetails() {
   const [show, setShow] = useState([]);
@@ -38,7 +39,7 @@ export default function ShowsDetails() {
             }
             title={showItem.name.toUpperCase()}
             rating={showItem.vote_average}
-            description={showItem.overview.substring(0, 300) + "..."}
+            description={showItem.overview.substring(0, 200) + "..."}
             key={index}
           />
         ))

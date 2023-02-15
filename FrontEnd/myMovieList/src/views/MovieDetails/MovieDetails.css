@@ -32,8 +32,8 @@
 
 .mainDetailsCard img{
     height: 100vh;
-    -webkit-filter: brightness(0.09);
-    filter: brightness(0.09);
+    -webkit-filter: brightness(0.2);
+    filter: brightness(0.2);
 }
 
 .mainDetailsBody {
