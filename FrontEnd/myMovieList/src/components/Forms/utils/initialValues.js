@@ -8,6 +8,6 @@ export const initialRegisterValues = {
 };
 
 export const initialLoginValues = {
-    username:"",
+    email:"",
     password:""
 };

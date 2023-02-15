@@ -1,13 +1,13 @@
 import { Form, Formik } from "formik";
 import Input from "../ui/Input";
 import { initialLoginValues } from "./utils/initialValues";
-// import { useLoginContext } from "../../contexts/LoginModeContext";
+import { useLoginContext } from "../../contexts/LoginModeContext";
 import { LoginFormSchema } from "./FormSchema";
 import ArrowButton from "../Buttons/ArrowButton/ArrowButton";
 import { Link } from "react-router-dom";
 
 export default function LoginForm() {
-  //   const { logInAcc } = useLoginContext();
+  const { logInAcc } = useLoginContext();
   const onSubmit = (values, actions) => {
     logInAcc(values);
     actions.resetForm();
@@ -22,8 +22,8 @@ export default function LoginForm() {
         <Form className="formLogin">
           <h1>Login</h1>
           <div className="inputContainer">
-            <h6>Username</h6>
-            <Input name="username" type="username" className="loginInput" />
+            <h6>Email</h6>
+            <Input name="email" type="email" className="loginInput" />
           </div>
           <div className="inputContainer">
             <h6>Password</h6>

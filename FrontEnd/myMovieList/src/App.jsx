@@ -13,10 +13,17 @@ import UserList from "./views/UserList/UserList";
 import Register from "./views/Register/Register";
 import VerticalLayout from "./components/Layout/VerticalLayOut";
 import UserListDetails from "./views/UserListDetails/UserListDetails";
+import ShowsDetails from "./views/ShowsDetails/ShowsDetails";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
     <Routes>
+      <Route element={<PublicRoute />}>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
       </Route>
@@ -24,15 +31,13 @@ function App() {
         <Route path="movies" element={<Movies />} />
         <Route path="shows" element={<Series />} />
         <Route path="feed" element={<Feed />} />
-        <Route path="movieDetails" element={<MovieDetails />} />
+        <Route path="movies/:id" element={<MovieDetails />} />
+        <Route path="series/:id" element={<ShowsDetails />} />
         <Route path="profile" element={<Profile />} />
         <Route path="userList" element={<UserList />} />
         <Route path="userListDetails" element={<UserListDetails />} />
         <Route path="editProfile" element={<EditProfile />} />
       </Route>
-
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
     </Routes>
   );
 }

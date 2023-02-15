@@ -5,33 +5,33 @@ import { Link } from "react-router-dom";
 import Input from "../ui/Input";
 import ArrowButton from "../Buttons/ArrowButton/ArrowButton";
 
-// const onSubmit = (values, actions) => {
-//   fetch("http://localhost:3000/user", {
-//     method: "POST",
-//     headers: {
-//       "Content-type": "application/json",
-//     },
-//     body: JSON.stringify(values),
-//   }).then((response) => {
-//     console.log(response.status);;
-//     if (response.status === 400) {
-//       alert("Error al recibir el body");
-//     } else if (response.status === 200) {
-//       alert(`Usuario ${values.name} registrado correctamente`);
-//       console.log(values)
-//     } else if (response.status === 409) {
-//       alert("Usuario ya registrado");
-//     }
-//   });
-//   actions.resetForm();
-// };
+const onSubmit = (values, actions) => {
+  fetch("http://localhost:3000/user", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(values),
+  }).then((response) => {
+    console.log(response.status);
+    if (response.status === 400) {
+      alert("Error al recibir el body");
+    } else if (response.status === 200) {
+      alert(`Usuario ${values.name} registrado correctamente`);
+      console.log(values);
+    } else if (response.status === 409) {
+      alert("Usuario ya registrado");
+    }
+  });
+  actions.resetForm();
+};
 
 export default function RegisterForm() {
   return (
     <Formik
       initialValues={initialRegisterValues}
       validationSchema={RegisterFormSchema}
-      // onSubmit={onSubmit}
+      onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
         <Form className="formRegister">

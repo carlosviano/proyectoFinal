@@ -4,8 +4,16 @@ import image from "./images/luffyPP.png";
 import postImage from "./images/luffyPP.jpg";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import { useEffect, useState } from "react";
 
 export default function Profile() {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    async function getUser() {
+      const response = await fetch(`http://localhost:3000/user/get/${id}`);
+    }
+  });
   return (
     <div className="profileContainer">
       <div className="profileContent">

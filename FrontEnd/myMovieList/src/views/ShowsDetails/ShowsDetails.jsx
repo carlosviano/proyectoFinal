@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DetailsCard from "../../components/Card/DetailsCard";
 
-export default function MovieDetails() {
+export default function ShowsDetails() {
   const [show, setShow] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     async function getShowById() {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=66674c972aa10f212a4d8ea3c11ec886&language=en-US`,
+        `https://api.themoviedb.org/3/tv/${id}?api_key=66674c972aa10f212a4d8ea3c11ec886&language=en-US`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -36,9 +36,9 @@ export default function MovieDetails() {
               "https://www.themoviedb.org/t/p/original/" +
               showItem.backdrop_path
             }
-            title={showItem.title.toUpperCase()}
+            title={showItem.name.toUpperCase()}
             rating={showItem.vote_average}
-            description={showItem.overview.substring(0, 200) + "..."}
+            description={showItem.overview.substring(0, 300) + "..."}
             key={index}
           />
         ))

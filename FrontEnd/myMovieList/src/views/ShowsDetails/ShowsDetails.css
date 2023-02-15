@@ -1,0 +1,104 @@
+.mainDetailsCard {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat:no-repeat;
+    color: var(--white);
+    position:relative;
+}
+
+.headerDetailsContent {
+    display: flex;
+    align-items: center;
+}
+
+.headerDetailsContent h5 {
+    padding-left: 16px;
+}
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    padding-top: 80px;
+    padding-left: 80px;
+    height: 100vh;
+}
+
+
+.mainDetailsCard img{
+    height: 100vh;
+    -webkit-filter: brightness(0.05);
+    filter: brightness(0.05);
+}
+
+.mainDetailsBody {
+    display: flex;
+    flex-direction: column;
+    top:8px;
+    left: 16px;
+    padding-top: 40px;
+}
+
+.mainDetailsBody {
+    display: flex;
+}
+
+.mainDetailsBodyHeader {
+ display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.mainDetailsBodyRating {
+    display: flex;
+    align-items: center;
+}
+
+.mainDetailsBodyRatingNumber {
+    padding: 8px;
+}
+
+.mainDetailsBodyTitle h1 {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--white)
+}
+
+.mainDetailsSecondBody {
+    padding-top: 64px;
+    max-width: 50%;
+}
+
+.mainDetailsBodyTitle h1 {
+    padding-right: 40px;
+}
+
+.mainDetailsFooter {
+    display: flex;
+    padding-top: 200px;
+    padding-right:64px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainDetailsFooterVideo {
+    display: flex;
+    align-items: center;
+}
+
+.mainDetailsFooterVideo h3 {
+    padding-left: 24px;
+    -webkit-text-fill-color: var(--black);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--white)
+}
+.mainDetailsFooterVideo a {
+   color: var(--white);
+}

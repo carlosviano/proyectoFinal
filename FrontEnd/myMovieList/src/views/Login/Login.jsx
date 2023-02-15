@@ -1,6 +1,6 @@
 import LoginForm from "../../components/Forms/LoginForm";
 import "./Login.css";
-import img from "../../components/Banners/SmallBanner/Images/spiderman.jpg";
+import { useLoginContext } from "../../contexts/LoginModeContext";
 
 export default function Login() {
   return (

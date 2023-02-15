@@ -46,7 +46,7 @@ export default function Home() {
             to={"/shows"}
           />
           <SmallBanner
-            imgLink={"/topratedmovies"}
+            imgLink={"/movies"}
             img={img2}
             footerTitle={"Go to all movies"}
             to={"/movies"}

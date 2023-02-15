@@ -23,10 +23,10 @@ export const RegisterFormSchema = yup.object().shape({
 })
 
 export const LoginFormSchema= yup.object().shape({
-    username: yup
+    email: yup
     .string()
-    .min(5,"Username field must be atleast 5 characters long")
-    .required("Username field is required"),
+    .email("Please enter a valid email address")
+    .required("Email field is required"),
     password: yup
     .string()
     .min(5,"Password must be at least 5 characters long")
