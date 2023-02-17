@@ -10,11 +10,12 @@ export default function Card({
   to,
   title,
   starFill,
+  cardImgClassName,
 }) {
   return (
     <div className="cardContainer">
       <div className="cardContent">
-        <div className="cardImage">
+        <div className={cardImgClassName}>
           <Link to={to}>
             <img src={image} alt={"image"}></img>
           </Link>

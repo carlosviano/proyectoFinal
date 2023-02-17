@@ -76,7 +76,7 @@ controller.updateImage = async (req, res) => {
     }
 
     if (!req.query) {
-      return res.status(400).send("No se ha indicado el id del producto");
+      return res.status(400).send("No se ha indicado el id del usuario");
     }
 
     const images = !req.files.imagen.length
@@ -102,9 +102,18 @@ controller.updateImage = async (req, res) => {
 
 controller.getUserById = async (req, res) => {
   try {
-    console.log(req.params.id);
-    const product = await dao.getUserById(req.params.id);
-    return res.status(200).send(product);
+    const user = await dao.getUserById(req.params.id);
+    if (user) {
+      const posts = user[0].imagesPost.map((imagePost, index) => {
+        return { image: imagePost, post: user[0].postTitles[index] };
+      });
+      const { imagesPost, postTitles, ...rest } = user[0];
+
+      const list = await dao.getListById(req.params.id)
+      const userToFrontFormat = { ...rest, posts, list };
+      return res.status(200).send(userToFrontFormat);
+
+    }
   } catch (e) {
     console.log(e.message);
   }

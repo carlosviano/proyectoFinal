@@ -40,3 +40,9 @@ export const EditProfileFormSchema = yup.object().shape({
     .string()
     .min(5, "Username field must be atleast 5 characters long"),
 });
+
+export const AddPostFormSchema = yup.object().shape({
+  title: yup.string().max(30, "Max number of characters for title are 30"),
+  text: yup.string().max(400, "Maximum number of characters for a post are 400"),
+  file: yup.mixed().required("Required")
+})

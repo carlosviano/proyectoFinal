@@ -18,6 +18,18 @@
 .cardImage img {
     width: 100%;
     border-radius: 8px;
+    height: 400px;
+}
+
+.cardImageMovie {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+.cardImageMovie img {
+    width: 100%;
+    border-radius: 8px;
 }
 
 .cardContent {

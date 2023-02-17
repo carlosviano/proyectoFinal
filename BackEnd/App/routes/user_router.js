@@ -12,4 +12,5 @@ userRouter.post('/login',validateLoginDto,userController.loginUser)
 
 userRouter.patch('/update/:id',userController.updateImage)
 
+
 export default userRouter

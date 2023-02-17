@@ -11,3 +11,9 @@ export const initialLoginValues = {
     email:"",
     password:""
 };
+
+export const initialAddPostValues = {
+    title:"",
+    text:"",
+    file:""
+}

@@ -40,6 +40,7 @@ export default function Series() {
               title={"Add To List"}
               starFill={"gold"}
               key={showsListItem.id}
+              cardImgClassName={"cardImageMovie"}
             />
           ))
         )}

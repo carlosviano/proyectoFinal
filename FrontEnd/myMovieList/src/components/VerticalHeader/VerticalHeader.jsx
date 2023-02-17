@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useLoginContext } from "../../contexts/LoginModeContext";
 import "./VerticalHeader.css";
 
 export default function VerticalHeader() {
+  const { logOutAcc } = useLoginContext();
   return (
     <div className="verticalHeaderMainContainer">
       <div className="verticalHeaderContainerUpper">
@@ -34,11 +36,13 @@ export default function VerticalHeader() {
         </div>
         <div className="verticalHeaderContainerTitle">
           <Link to={"/userList"}>
-            <h5>My lists</h5>
+            <h5>My list</h5>
           </Link>
         </div>
         <div className="verticalHeaderContainerTitle">
-          <h5>Log Out</h5>
+          <Link onClick={logOutAcc} to={"/"}>
+            <h5>Log Out</h5>
+          </Link>
         </div>
       </div>
     </div>

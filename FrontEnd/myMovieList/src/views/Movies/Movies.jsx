@@ -39,6 +39,7 @@ export default function TopRatedMovies() {
               title={"Add To List"}
               starFill={"gold"}
               key={moviesListItem.id}
+              cardImgClassName={"cardImageMovie"}
             />
           ))
         )}

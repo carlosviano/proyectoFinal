@@ -12,7 +12,6 @@ import Series from "./views/Series/Series";
 import UserList from "./views/UserList/UserList";
 import Register from "./views/Register/Register";
 import VerticalLayout from "./components/Layout/VerticalLayOut";
-import UserListDetails from "./views/UserListDetails/UserListDetails";
 import ShowsDetails from "./views/ShowsDetails/ShowsDetails";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -35,7 +34,6 @@ function App() {
         <Route path="series/:id" element={<ShowsDetails />} />
         <Route path="profile" element={<Profile />} />
         <Route path="userList" element={<UserList />} />
-        <Route path="userListDetails" element={<UserListDetails />} />
         <Route path="editProfile" element={<EditProfile />} />
       </Route>
     </Routes>

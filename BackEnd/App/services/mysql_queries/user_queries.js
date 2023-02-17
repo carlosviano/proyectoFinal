@@ -28,7 +28,7 @@ userQueries.addUser = async (imageData) => {
             surname: userData.surname,
             email: userData.email,
             password: md5(userData.password),
-            reg_date: moment().format('YYYY-MM-DD HH:mm:ss')
+            reg_date: moment().format('YYYY-MM-DD')
         }
         return await db.query('INSERT INTO user SET ?',userObj, 'insert',conn)
     } catch(e){
@@ -58,7 +58,7 @@ userQueries.getUserById = async (id) => {
     let conn = null
     try{
         conn = await db.createConnection();
-        return await db.query('SELECT * FROM user WHERE iduser = ?', id, 'select',conn)
+        return await db.query('SELECT user.iduser,user.username, user.reg_date,user.img as profilePicture, json_arrayagg(post.img) as imagesPost, json_arrayagg(post.title) as postTitles FROM post JOIN user on post.user = user.iduser WHERE iduser = ? group by iduser', id, 'select',conn)
     } catch(e){
         throw new Error(e)
     } finally {
@@ -66,5 +66,16 @@ userQueries.getUserById = async (id) => {
     }
 }
 
+userQueries.getListById = async (id) => {
+    let conn = null
+    try{
+        conn = await db.createConnection();
+        return await db.query('SELECT * from list where user = ?', id, 'select',conn)
+    } catch(e){
+        throw new Error(e)
+    } finally {
+        conn && await conn.end();
+    }
+}
 
 export default userQueries
