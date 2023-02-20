@@ -1,62 +1,161 @@
+/* 
+    .cardContainer {
+        display: flex;
+        border: 2px solid var(--gray01);
+        width: 20%;
+        margin-left: 32px;
+        border-radius: 8px;
+        background-color: var(--black);
+        margin-bottom: 16px;
+    }
 
-.cardContainer {
-    display: flex;
-    border: 2px solid var(--gray01);
-    width: 20%;
-    margin-left: 32px;
-    border-radius: 8px;
-    background-color: var(--black);
-    margin-bottom: 16px;
-}
+    .cardImage{
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+    }
 
-.cardImage{
-    display: flex;
-    justify-content: center;
-    padding: 16px;
-}
+    .cardImage img {
+        width: 100%;
+        border-radius: 8px;
+        height: 400px;
+    }
 
-.cardImage img {
-    width: 100%;
-    border-radius: 8px;
-    height: 400px;
-}
+    .cardImageMovie {
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+    }
 
-.cardImageMovie {
-    display: flex;
-    justify-content: center;
-    padding: 16px;
-}
+    .cardImageMovie img {
+        width: 100%;
+        border-radius: 8px;
+    }
 
-.cardImageMovie img {
-    width: 100%;
-    border-radius: 8px;
-}
+    .cardContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-.cardContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+    .cardFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 16px;
+    }
 
-.cardFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 16px;
-}
+    .cardTitle, .cardDescription{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.cardTitle, .cardDescription{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .cardRating, .cardRatingLogo{
+        padding: 4px;
+    }
 
-.cardRating, .cardRatingLogo{
-    padding: 4px;
-}
+    .cardCTA {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    } */
 
-.cardCTA {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
+    .cardContainer {
+        display: flex;
+        border: 2px solid var(--gray01);
+        width: 20%;
+        margin-left: 32px;
+        border-radius: 8px;
+        background-color: var(--black);
+        margin-bottom: 16px;
+      }
+      
+      .cardImage{
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+      }
+      
+      .cardImage img {
+        width: 100%;
+        border-radius: 8px;
+        height: 400px;
+      }
+      
+      .cardImageMovie {
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+      }
+      
+      .cardImageMovie img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      
+      .cardContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      
+      .cardFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 16px;
+      }
+      
+      .cardTitle, .cardDescription {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .cardRating, .cardRatingLogo {
+        padding: 4px;
+      }
+      
+      .cardCTA {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+      
+      @media (max-width: 768px) {
+        .cardContainer {
+          width: 100%;
+          margin-left: 0;
+        }
+        
+        .cardImage img, .cardImageMovie img {
+          height: auto;
+        }
+        
+        .cardContent {
+          padding: 16px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .cardContainer {
+          flex-direction: column;
+          margin-left: 0;
+        }
+        
+        .cardImage img, .cardImageMovie img {
+          height: auto;
+        }
+        
+        .cardFooter {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 16px;
+        }
+        
+        .cardRating, .cardRatingLogo {
+          margin-bottom: 8px;
+        }
+      }
+      

@@ -1,14 +1,20 @@
 import { ArrowLeftIcon, PlayIcon, StarFillIcon } from "@primer/octicons-react";
+import { Link, useNavigate } from "react-router-dom";
 import BigLabel from "../Label/BigLabel";
 import "./DetailsCard.css";
 
 export default function DetailsCard({ image, title, rating, description }) {
+  const navigate = useNavigate();
+
+  const goBack = () => navigate(0);
   return (
     <div className="mainDetailsCard">
       <img src={image}></img>
       <div className="detailsContainer">
         <div className="headerDetailsContent">
-          <ArrowLeftIcon size={24} />
+          <Link to={() => goBack()}>
+            <ArrowLeftIcon size={24} />
+          </Link>
         </div>
         <div className="mainDetailsBody">
           <div className="mainDetailsBodyHeader">
