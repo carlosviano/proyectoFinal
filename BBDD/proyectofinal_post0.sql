@@ -16,30 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `follows`
+-- Table structure for table `post`
 --
 
-DROP TABLE IF EXISTS `follows`;
+DROP TABLE IF EXISTS `post`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `follows` (
-  `idfollows` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `post` (
+  `idpost` int NOT NULL AUTO_INCREMENT,
   `user` int NOT NULL,
-  `following` int NOT NULL,
-  PRIMARY KEY (`idfollows`),
-  KEY `userfollow_fk_idx` (`user`,`following`),
-  CONSTRAINT `userfollow_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `text` varchar(400) NOT NULL,
+  `img` varchar(128) NOT NULL,
+  `reg_date` datetime DEFAULT NULL,
+  `title` varchar(30) NOT NULL,
+  `rating` int DEFAULT NULL,
+  PRIMARY KEY (`idpost`),
+  UNIQUE KEY `idpost_UNIQUE` (`idpost`),
+  KEY `user_fk_idx` (`user`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `follows`
+-- Dumping data for table `post`
 --
 
-LOCK TABLES `follows` WRITE;
-/*!40000 ALTER TABLE `follows` DISABLE KEYS */;
-INSERT INTO `follows` VALUES (1,1,2),(2,2,1);
-/*!40000 ALTER TABLE `follows` ENABLE KEYS */;
+LOCK TABLES `post` WRITE;
+/*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES (3,1,'Hola este es mi primer post','images/products/ofnwe.jpg','2023-02-16 00:00:00','Mi primer post',9),(15,2,'post usuario 2','images/products/ofnwe.jpg',NULL,'Post user 2',9),(16,3,'post user 3','images/products/ofnwe.jpg',NULL,'Post user 3',9),(17,6,'post user 6','images/products/ofnwe.jpg',NULL,'Post user 6',9),(18,5,'post user 5','images/products/ofnwe.jpg',NULL,'Post user 5',9),(19,1,'dsdsdsdsdsd','images/products/luffyPP.jpg','2023-02-20 00:00:00','sdsdsds',NULL);
+/*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 15:42:35
+-- Dump completed on 2023-02-20 14:00:41

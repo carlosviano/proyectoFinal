@@ -57,7 +57,12 @@
 
 .mainFeedCardUserInfo {
     display: flex;
+    width: 100%;
     height: 50%;
     justify-content: space-around;
     align-items: flex-end;
+}
+
+.mainFeedCardUserInfo div {
+margin: 24px;
 }

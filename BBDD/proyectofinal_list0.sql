@@ -25,13 +25,17 @@ DROP TABLE IF EXISTS `list`;
 CREATE TABLE `list` (
   `idlist` int NOT NULL AUTO_INCREMENT,
   `user` int NOT NULL,
-  `type` varchar(45) NOT NULL DEFAULT 'currently watching',
+  `state` enum('currently watching','watched','plan to watch') NOT NULL DEFAULT 'currently watching',
   `reg_date` datetime DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `rating` int DEFAULT NULL,
+  `type` enum('tv show','movie') NOT NULL,
+  `image` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idlist`),
   UNIQUE KEY `idList_UNIQUE` (`idlist`),
   KEY `listuser_fk_idx` (`user`),
   CONSTRAINT `listuser_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +44,7 @@ CREATE TABLE `list` (
 
 LOCK TABLES `list` WRITE;
 /*!40000 ALTER TABLE `list` DISABLE KEYS */;
-INSERT INTO `list` VALUES (1,1,'currently watching',NULL);
+INSERT INTO `list` VALUES (5,1,'currently watching',NULL,'one piece',10,'tv show','images/products/pngwing.com (5).png'),(6,1,'currently watching',NULL,'breaking bad',10,'tv show','images/products/pngwing.com (5).png'),(7,1,'currently watching',NULL,'wednesday',8,'tv show','images/products/pngwing.com (5).png');
 /*!40000 ALTER TABLE `list` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 15:42:35
+-- Dump completed on 2023-02-20 14:00:41

@@ -18,7 +18,7 @@ userQueries.getUserByEmail = async (email) => {
     }
 }
 
-userQueries.addUser = async (imageData) => {
+userQueries.addUser = async (userData) => {
     let conn = null;
     try{
         conn = await db.createConnection();
@@ -78,4 +78,15 @@ userQueries.getListById = async (id) => {
     }
 }
 
+userQueries.getFeedById = async(id) =>{
+    let conn = null
+    try{
+        conn = await db.createConnection();
+        return await db.query('SELECT post.*, user.username, user.img as profilePicture FROM follows LEFT JOIN post ON post.user = follows.following JOIN user on post.user = user.iduser WHERE follows.user = ? order by reg_date desc', id, 'select',conn)
+    } catch(e){
+        throw new Error(e)
+    } finally {
+        conn && await conn.end();
+    }
+}
 export default userQueries

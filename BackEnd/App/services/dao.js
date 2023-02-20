@@ -15,4 +15,6 @@ dao.addPublication = async(id,publicationData) => await publicationQueries.addPu
 
 dao.getListById = async(id) => await userQueries.getListById(id)
 
+dao.getFeedById = async(id) => await userQueries.getFeedById(id)
+
 export default dao;

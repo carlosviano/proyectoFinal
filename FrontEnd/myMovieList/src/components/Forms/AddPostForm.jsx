@@ -10,10 +10,11 @@ import { useRef, useState } from "react";
 
 export default function AddPostForm() {
   const { authorization } = useLoginContext();
+  const [preview, setPreview] = useState();
 
   const onSubmit = (values, actions) => {
     let formdata = new FormData();
-    console.log(values);
+    console.log(values.file.name, "probando para la imagen");
     formdata.append("file", values.file);
     formdata.append("title", values.title);
     formdata.append("text", values.text);
@@ -34,7 +35,6 @@ export default function AddPostForm() {
     });
     actions.resetForm();
   };
-  // const { setFieldValue } = useFormik();
 
   return (
     <Formik
@@ -73,8 +73,10 @@ export default function AddPostForm() {
                 onChange={(event) => {
                   console.log(event.target);
                   setFieldValue("file", event.target.files[0]);
+                  setPreview(values.file.name);
                 }}
               ></Input>
+              <img src={preview} alt="" />
             </div>
             <ArrowButton
               className={"mediumBtnGray"}

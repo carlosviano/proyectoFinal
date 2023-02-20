@@ -46,3 +46,7 @@ export const AddPostFormSchema = yup.object().shape({
   text: yup.string().max(400, "Maximum number of characters for a post are 400"),
   file: yup.mixed().required("Required")
 })
+
+export const BrowseFormSchema = yup.object().shape({
+  search: yup.string()
+})

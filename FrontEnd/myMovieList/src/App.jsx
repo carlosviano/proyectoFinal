@@ -11,10 +11,10 @@ import Profile from "./views/Profile/Profile";
 import Series from "./views/Series/Series";
 import UserList from "./views/UserList/UserList";
 import Register from "./views/Register/Register";
+import Browse from "./views/Browse/Browse";
 import VerticalLayout from "./components/Layout/VerticalLayOut";
 import ShowsDetails from "./views/ShowsDetails/ShowsDetails";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -35,6 +35,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="userList" element={<UserList />} />
         <Route path="editProfile" element={<EditProfile />} />
+        <Route path="browse" element={<Browse />} />
       </Route>
     </Routes>
   );

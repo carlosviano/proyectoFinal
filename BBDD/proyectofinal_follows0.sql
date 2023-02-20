@@ -16,32 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `listdetails`
+-- Table structure for table `follows`
 --
 
-DROP TABLE IF EXISTS `listdetails`;
+DROP TABLE IF EXISTS `follows`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `listdetails` (
-  `idlistdetails` int NOT NULL AUTO_INCREMENT,
-  `list` int NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `rating` bigint NOT NULL,
-  PRIMARY KEY (`idlistdetails`),
-  UNIQUE KEY `idlistdetails_UNIQUE` (`idlistdetails`),
-  KEY `list_fk_idx` (`list`),
-  CONSTRAINT `list_fk` FOREIGN KEY (`list`) REFERENCES `list` (`idlist`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `follows` (
+  `idfollows` int NOT NULL AUTO_INCREMENT,
+  `user` int NOT NULL,
+  `following` int NOT NULL,
+  PRIMARY KEY (`idfollows`),
+  KEY `userfollow_fk_idx` (`user`,`following`),
+  CONSTRAINT `userfollow_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `listdetails`
+-- Dumping data for table `follows`
 --
 
-LOCK TABLES `listdetails` WRITE;
-/*!40000 ALTER TABLE `listdetails` DISABLE KEYS */;
-INSERT INTO `listdetails` VALUES (1,1,'One Piece',10);
-/*!40000 ALTER TABLE `listdetails` ENABLE KEYS */;
+LOCK TABLES `follows` WRITE;
+/*!40000 ALTER TABLE `follows` DISABLE KEYS */;
+INSERT INTO `follows` VALUES (6,1,1),(1,1,2),(3,1,3),(5,1,5),(4,1,6),(2,2,1);
+/*!40000 ALTER TABLE `follows` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 15:42:35
+-- Dump completed on 2023-02-20 14:00:41

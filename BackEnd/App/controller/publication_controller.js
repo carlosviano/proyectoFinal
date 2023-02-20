@@ -20,11 +20,9 @@ controller.addPublication = async (req, res) => {
     if (!req.query) {
       return res.status(400).send("No se ha indicado el id del usuario");
     }
-    console.log(req.files,"files")
-    const images = !req.files.length
-      ? [req.files.file]
-      : req.files.file;
-      console.log(images,"images")
+    console.log(req.files, "files");
+    const images = !req.files.length ? [req.files.file] : req.files.file;
+    console.log(images, "images");
     images.forEach(async (image) => {
       let uploadPath = __dirname + "/public/images/products/" + image.name;
       let BBDDPath = "images/products/" + image.name;
@@ -39,10 +37,25 @@ controller.addPublication = async (req, res) => {
       });
     });
 
-    return res.send(`Publicacion de usuario ${req.params.id} con titulo ${title} posteada con exito`);
+    return res.send(
+      `Publicacion de usuario ${req.params.id} con titulo ${title} posteada con exito`
+    );
   } catch (e) {
     console.log(e.message);
   }
 };
 
+controller.getUserFeed = async (req, res) => {
+  try {
+    const feed = await dao.getFeedById(req.params.id);
+
+    if (!feed) {
+      console.log("Error when trying to fetch feed");
+    }
+
+    return res.send(feed);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 export default controller;

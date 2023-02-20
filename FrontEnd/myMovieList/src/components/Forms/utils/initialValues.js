@@ -17,3 +17,7 @@ export const initialAddPostValues = {
     text:"",
     file:""
 }
+
+export const initialBrowseValues ={
+    search:""
+}
