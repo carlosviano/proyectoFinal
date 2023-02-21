@@ -5,6 +5,9 @@ const loginContext = createContext({
   authorization: {
     jwt: null,
     role: null,
+    name: null,
+    surname: null,
+    username: null,
   },
   newUserLogin: null,
   logInAcc: () => {},
@@ -20,6 +23,8 @@ export function LoginContextProvider({ children }, newUserLogin) {
     JSON.parse(window.localStorage.getItem(MY_AUTH_APP)) ?? {
       email: null,
       role: null,
+      name: null,
+      surname: null,
     }
   );
 

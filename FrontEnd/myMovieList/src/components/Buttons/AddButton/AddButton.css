@@ -1,0 +1,54 @@
+.smallBtnBlack {
+ height: 24px;
+ width: 24px;
+ border-radius:50%;
+ border:transparent;
+ background-color: var(--black);
+}
+
+.smallBtnGray {
+    height: 24px;
+    width: 24px;
+    border-radius:50%;
+    border:transparent;
+    background-color: var(--gray01);
+   }
+
+.mediumBtnBlack {
+    height: 32px;
+    width: 32px;
+    border-radius:50%;
+    border:transparent;
+    background-color: var(--black);
+}
+
+.mediumBtnGray {
+    height: 32px;
+    width: 32px;
+    border-radius:50%;
+    border:transparent;
+    background-color: var(--gray01);
+}
+.mediumBtnGreen {
+    height: 32px;
+    width: 32px;
+    border-radius:50%;
+    border:transparent;
+    background-color: var(--green);
+}
+
+.bigBtnGreen {
+    height:40px;
+    width: 40px;
+    border-radius:50%;
+    border:transparent;
+    background-color:var(--green);
+}
+
+.bigBtnBlue {
+    height:40px;
+    width: 40px;
+    border-radius:50%;
+    border:transparent;
+    background-color:var(--blue);
+}

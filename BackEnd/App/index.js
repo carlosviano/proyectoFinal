@@ -9,6 +9,7 @@ import cors from "cors";
 import fileUpload from "express-fileupload";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import listRouter from "./routes/list_router.js";
 
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.use(
 
 app.use("/user", userRouter);
 app.use('/publication', publicationRouter)
+app.use('/list',listRouter)
 
 await db.createConnection();
 

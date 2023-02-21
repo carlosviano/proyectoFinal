@@ -94,13 +94,13 @@
     align-items: center;
 }
 
-.mainDetailsFooterVideo {
+.mainDetailsFooterVideo, .mainDetailsFooterLabel {
     display: flex;
     align-items: center;
 }
 
-.mainDetailsFooterVideo h3 {
-    padding-left: 24px;
+.mainDetailsFooterVideo, .mainDetailsFooterLabel h3 {
+    padding: 24px;
     -webkit-text-fill-color: var(--black);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--white)

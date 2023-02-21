@@ -89,4 +89,25 @@ userQueries.getFeedById = async(id) =>{
         conn && await conn.end();
     }
 }
+
+userQueries.updateUser = async (id,userData) => {
+    let conn = null
+    try{
+        conn =  await db.createConnection();
+
+        let userObj = {
+            name: userData.name,
+            surname: userData.surname,
+            username:userData.username,
+            email: userData.email,
+            password: userData.password ? md5(userData.password) : undefined,
+        }
+        userObj = await utils.removeUndefinedKeys(userObj)
+        return await db.query('Update user SET ? WHERE iduser = ?', [userObj,id], 'update', conn)
+    } catch (e){
+        throw new Error(e);
+    } finally {
+        conn && await conn.end();
+    }
+}
 export default userQueries

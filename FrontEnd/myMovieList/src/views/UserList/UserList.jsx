@@ -7,7 +7,9 @@ import { useLoginContext } from "../../contexts/LoginModeContext";
 
 export default function UserList() {
   const [user, setUser] = useState([]);
+  const [editable, setEditable] = useState(true);
   const { authorization } = useLoginContext();
+
   useEffect(() => {
     async function getUser() {
       const response = await fetch(
@@ -48,6 +50,7 @@ export default function UserList() {
           type={listItem.type}
           progress={listItem.state}
           key={index}
+          onClickRating={() => ToggleEditable()}
         />
       ))}
     </div>

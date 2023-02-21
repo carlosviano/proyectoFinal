@@ -21,6 +21,7 @@ export default function TopRatedMovies() {
     }
     getMovies();
   }, []);
+
   return (
     <>
       <div className="moviesMainContainer">
@@ -36,10 +37,11 @@ export default function TopRatedMovies() {
               cardTitle={moviesListItem.title}
               movieRating={moviesListItem.vote_average}
               to={`/movies/${moviesListItem.id}`}
-              title={"Add To List"}
+              title={"View details"}
               starFill={"gold"}
               key={moviesListItem.id}
               cardImgClassName={"cardImageMovie"}
+              onClick={() => addToList}
             />
           ))
         )}

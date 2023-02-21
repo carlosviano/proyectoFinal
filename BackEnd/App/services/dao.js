@@ -1,5 +1,6 @@
 import userQueries from "./mysql_queries/user_queries.js";
 import publicationQueries from "./mysql_queries/publication_queries.js";
+import listQueries from "./mysql_queries/list_queries.js";
 
 const dao = {};
 
@@ -17,4 +18,9 @@ dao.getListById = async(id) => await userQueries.getListById(id)
 
 dao.getFeedById = async(id) => await userQueries.getFeedById(id)
 
+dao.addToList = async(id,itemData) => await listQueries.addToList(id ,itemData)
+
+dao.getShowByName = async(id,showName) => await listQueries.getShowByName(id,showName)
+
+dao.updateUser = async(id, userData) => await userQueries.updateUser(id,userData)
 export default dao;

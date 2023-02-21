@@ -10,7 +10,8 @@ userRouter.get('/get/:id',userController.getUserById)
 
 userRouter.post('/login',validateLoginDto,userController.loginUser)
 
-userRouter.patch('/update/:id',userController.updateImage)
+userRouter.patch('/update/image/:id',userController.updateImage)
 
+userRouter.patch('/update/info/:id', userController.updateProfile)
 
 export default userRouter

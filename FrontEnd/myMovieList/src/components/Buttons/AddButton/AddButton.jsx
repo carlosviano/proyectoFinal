@@ -1,11 +1,11 @@
-import { ArrowRightIcon } from "@primer/octicons-react";
-import "./ArrowButton.css";
+import { ArrowRightIcon, PlusIcon } from "@primer/octicons-react";
+import "./AddButton.css";
 
-export default function ArrowButton({
+export default function AddButton({
   disabled,
   className,
-  arrowSize,
-  arrowFill,
+  plusSize,
+  plusFill,
   onClick,
 }) {
   return (
@@ -17,7 +17,7 @@ export default function ArrowButton({
         onClick={onClick}
       >
         {" "}
-        <ArrowRightIcon size={arrowSize} fill={arrowFill} />
+        <PlusIcon size={plusSize} fill={plusFill} />
       </button>
     </>
   );

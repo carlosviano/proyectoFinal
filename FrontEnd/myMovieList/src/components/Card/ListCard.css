@@ -4,12 +4,13 @@
     padding: 8px;
     justify-content: space-around;
     border-top: 1px solid grey;
+    width: 100%;
 }
 
 .listCardImageNameGroup {
     display: flex;
-    justify-content: space-around;
-    width: 480px;
+    justify-content: flex-start;
+    width: 30%;
 }
 
 .listCardShowImage {
@@ -23,15 +24,28 @@
 .listCardRightGroup {
     display: flex;
     justify-content: flex-end;
-    width: 160px;
+    width: 30%px;
 }
 
 .listCardMiddleGroup {
     display: flex;
     justify-content: space-around;
-    width: 480px;
+    width: 30%;
 }
 
 .listCardShowImage img {
     width: 160px
+}
+
+.listCardRating,.listCardProgressTitle {
+    display: flex;
+    align-items: center;
+}
+
+.listCardRating div , .listCardProgressTitle div {
+    padding: 8px;
+}
+
+.hidden {
+    display: none;
 }

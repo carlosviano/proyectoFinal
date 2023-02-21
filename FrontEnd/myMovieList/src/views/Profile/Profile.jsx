@@ -23,7 +23,7 @@ export default function Profile() {
   useEffect(() => {
     async function getUser() {
       const response = await fetch(
-        `http://localhost:3000/user/get/${authorization.iduser}`,
+        `http://localhost:3000/user/get/${authorization?.iduser}`,
         {
           method: "GET",
           headers: { "Content-type": "application/json" },
@@ -80,9 +80,7 @@ export default function Profile() {
               {!post
                 ? user.list.map((listItem, index) => (
                     <ListCard
-                      id={authorization.iduser}
                       altText={`post del usuario ${authorization.iduser} de la serie ${listItem.name}`}
-                      i={` http://localhost:3000/${listItem.image}`}
                       name={listItem.name}
                       rating={listItem.rating}
                       type={listItem.type}

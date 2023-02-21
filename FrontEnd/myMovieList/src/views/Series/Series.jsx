@@ -37,7 +37,7 @@ export default function Series() {
               cardTitle={showsListItem.name}
               movieRating={showsListItem.vote_average}
               to={`/series/${showsListItem.id}`}
-              title={"Add To List"}
+              title={"View details"}
               starFill={"gold"}
               key={showsListItem.id}
               cardImgClassName={"cardImageMovie"}

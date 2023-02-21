@@ -1,12 +1,16 @@
 import { ArrowLeftIcon, PlayIcon, StarFillIcon } from "@primer/octicons-react";
 import { Link, useNavigate } from "react-router-dom";
 import BigLabel from "../Label/BigLabel";
+import AddButton from "../Buttons/AddButton/AddButton";
 import "./DetailsCard.css";
 
-export default function DetailsCard({ image, title, rating, description }) {
-  const navigate = useNavigate();
-
-  const goBack = () => navigate(0);
+export default function DetailsCard({
+  image,
+  title,
+  rating,
+  description,
+  onClick,
+}) {
   return (
     <div className="mainDetailsCard">
       <img src={image}></img>
@@ -42,9 +46,14 @@ export default function DetailsCard({ image, title, rating, description }) {
             <h3>Watch Trailer</h3>
           </div>
           <div className="mainDetailsFooterLabel">
-            <BigLabel
-              className={"labelContainerColoured"}
-              title={"Add to list "}
+            <label htmlFor="button">
+              <h3>Add to list</h3>
+            </label>
+            <AddButton
+              name={"button"}
+              className={"bigBtnGreen"}
+              plusSize={24}
+              onClick={onClick}
             />
           </div>
         </div>

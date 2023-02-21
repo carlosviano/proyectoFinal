@@ -47,6 +47,9 @@ controller.loginUser = async (req, res) => {
       iduser: user.iduser,
       email,
       role: user.role,
+      username:user.username,
+      name:user.name,
+      surname:user.surname
     });
 
     const encoder = new TextEncoder();
@@ -64,9 +67,7 @@ controller.loginUser = async (req, res) => {
 };
 
 controller.updateImage = async (req, res) => {
-  const { authorization } = req.headers;
-
-  if (!authorization) return res.sendStatus(401);
+ 
 
   try {
     if (req.files === null) return;
@@ -79,9 +80,9 @@ controller.updateImage = async (req, res) => {
       return res.status(400).send("No se ha indicado el id del usuario");
     }
 
-    const images = !req.files.imagen.length
-      ? [req.files.imagen]
-      : req.files.imagen;
+    const images = !req.files.length
+      ? [req.files.file]
+      : req.files.file;
     images.forEach(async (image) => {
       let uploadPath = __dirname + "/public/images/products/" + image.name;
       let BBDDPath = "images/products/" + image.name;
@@ -118,4 +119,16 @@ controller.getUserById = async (req, res) => {
     console.log(e.message);
   }
 };
+
+controller.updateProfile = async (req,res) => {
+
+  try{
+    if(Object.entries(req.body).length === 0) 
+    return res.sendStatus(400).send("Error al recibir el body");
+    await dao.updateUser(req.params.id, req.body)
+    return res.send(`Usuario con id ${req.params.id} modificado`)
+  } catch (e){
+    console.log(e.message)
+  }
+}
 export default controller;

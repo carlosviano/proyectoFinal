@@ -34,7 +34,9 @@ export default function Card({
           </div>
         </div>
         <div className="cardCTA">
-          <Label title={title} className="labelContainer" />
+          <Link to={to}>
+            <Label title={title} className="labelContainer" />
+          </Link>
         </div>
       </div>
     </div>
