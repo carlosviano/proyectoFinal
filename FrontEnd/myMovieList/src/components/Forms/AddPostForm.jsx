@@ -18,7 +18,7 @@ export default function AddPostForm() {
     formdata.append("file", values.file);
     formdata.append("title", values.title);
     formdata.append("text", values.text);
-
+    console.log(formdata, "this is form data");
     fetch(`http://localhost:3000/publication/${authorization.iduser}`, {
       method: "POST",
       body: formdata,

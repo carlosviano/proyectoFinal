@@ -1,6 +1,5 @@
 import { Form, Formik } from "formik";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import ArrowButton from "../../components/Buttons/ArrowButton/ArrowButton";
 import Card from "../../components/Card/Card";
 import { BrowseFormSchema } from "../../components/Forms/FormSchema";
