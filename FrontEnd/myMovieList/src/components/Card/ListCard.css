@@ -11,6 +11,10 @@
     display: flex;
     justify-content: flex-start;
     width: 30%;
+    align-items: center;
+}
+.listCardImageNameGroup div {
+    padding-left: 16px;
 }
 
 .listCardShowImage {
@@ -42,10 +46,16 @@
     align-items: center;
 }
 
-.listCardRating div , .listCardProgressTitle div {
-    padding: 8px;
-}
 
 .hidden {
     display: none;
+}
+
+.selectGroup {
+    display: flex;
+}
+
+.selectGroup div {
+    padding-left: 8px;
+    padding-right: 8px;
 }

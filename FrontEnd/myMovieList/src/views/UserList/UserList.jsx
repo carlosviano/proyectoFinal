@@ -7,8 +7,8 @@ import { useLoginContext } from "../../contexts/LoginModeContext";
 
 export default function UserList() {
   const [user, setUser] = useState([]);
-  const [editable, setEditable] = useState(true);
   const { authorization } = useLoginContext();
+  const [changeList, setChangeList] = useState(false);
 
   useEffect(() => {
     async function getUser() {
@@ -29,7 +29,7 @@ export default function UserList() {
     }
     getUser();
     console.log(user.username);
-  }, []);
+  }, [changeList]);
   return (
     <div className="userListDetailsMainContainer">
       <div className="userListDetailsTitles">
@@ -50,7 +50,8 @@ export default function UserList() {
           type={listItem.type}
           progress={listItem.state}
           key={index}
-          onClickRating={() => ToggleEditable()}
+          changeList={changeList}
+          setChangeList={setChangeList}
         />
       ))}
     </div>

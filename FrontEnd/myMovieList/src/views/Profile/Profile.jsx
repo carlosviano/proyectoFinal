@@ -10,6 +10,7 @@ export default function Profile() {
   const [user, setUser] = useState([]);
   const { authorization } = useLoginContext();
   const [post, setPost] = useState(true);
+  const [changeList, setChangeList] = useState(false);
 
   function togglePost() {
     console.log(post);
@@ -39,7 +40,7 @@ export default function Profile() {
     }
     getUser();
     console.log(user.username);
-  }, []);
+  }, [changeList]);
   return (
     <div className="profileContainer">
       {!user ? (
@@ -86,6 +87,8 @@ export default function Profile() {
                       type={listItem.type}
                       progress={listItem.state}
                       key={index}
+                      changeList={changeList}
+                      setChangeList={setChangeList}
                     />
                   ))
                 : user.posts?.map((post, index) => (

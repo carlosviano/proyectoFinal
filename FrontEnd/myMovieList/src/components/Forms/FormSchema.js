@@ -50,3 +50,4 @@ export const AddPostFormSchema = yup.object().shape({
 export const BrowseFormSchema = yup.object().shape({
   search: yup.string()
 })
+
