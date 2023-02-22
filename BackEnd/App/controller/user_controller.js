@@ -125,4 +125,35 @@ controller.updateProfile = async (req, res) => {
     console.log(e.message);
   }
 };
+
+controller.getUserByUsername = async (req, res) => {
+  const { username } = req.body
+
+  console.log(req.body)
+
+  if (!username) return res.status(400).send("Error al recibir el body");
+  try {
+    const user = await dao.getUserByUsername(username)
+
+    return res.send(user);
+  } catch (e) {
+    console.log(e.message)
+  }
+}
+
+controller.getFollows = async (req, res) => {
+
+  try {
+    const follows = await dao.getFollowsById(req.params.id);
+
+    if (!follows) {
+      console.log("Error when trying to fetch feed");
+    }
+
+    return res.send(follows);
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
 export default controller;

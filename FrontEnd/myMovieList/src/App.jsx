@@ -15,6 +15,7 @@ import Browse from "./views/Browse/Browse";
 import VerticalLayout from "./components/Layout/VerticalLayOut";
 import ShowsDetails from "./views/ShowsDetails/ShowsDetails";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
+import UserProfile from "./views/UserProfile/UserProfile";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="userList" element={<UserList />} />
         <Route path="editProfile" element={<EditProfile />} />
         <Route path="browse" element={<Browse />} />
+        <Route path="user/:id" element={<UserProfile />} />
       </Route>
     </Routes>
   );

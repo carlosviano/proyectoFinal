@@ -25,4 +25,8 @@ dao.getShowByName = async (id, showName) => await listQueries.getShowByName(id, 
 dao.updateUser = async (id, userData) => await userQueries.updateUser(id, userData)
 
 dao.updateList = async (id, listData) => await listQueries.updateList(id, listData)
+
+dao.getUserByUsername = async (username) => await userQueries.getUserByUsername(username)
+
+dao.getFollowsById = async (id) => await userQueries.getFollowsById(id)
 export default dao;

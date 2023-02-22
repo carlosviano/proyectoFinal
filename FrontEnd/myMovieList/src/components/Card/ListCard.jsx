@@ -10,6 +10,7 @@ export default function ListCard({
   progress,
   setChangeList,
   changeList,
+  icon,
 }) {
   const [editable, setEditable] = useState(false);
   const [ratingValue, setRatingValue] = useState("");
@@ -48,7 +49,7 @@ export default function ListCard({
     <div className="listCardDetails">
       <div className="listCardImageNameGroup">
         <div className="listCardIcon" onClick={() => ToggleEditable()}>
-          <PencilIcon size={16} />
+          {icon}
         </div>
         <div className="listCardShowName">
           <h6>{name}</h6>

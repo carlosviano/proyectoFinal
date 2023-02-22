@@ -6,19 +6,33 @@ import { BrowseFormSchema } from "../../components/Forms/FormSchema";
 import { initialBrowseValues } from "../../components/Forms/utils/initialValues";
 import Input from "../../components/ui/Input";
 import "./Browse.css";
+import { useLoginContext } from "../../contexts/LoginModeContext";
 
 export default function Browse() {
   const [search, setSearch] = useState(null);
+  const [usersFound, setUsersFound] = useState(null);
+  const { authorization } = useLoginContext();
 
   async function Browse(values, actions) {
-    console.log(values);
+    console.log(values.search);
     const response = await fetch(
       ` https://api.themoviedb.org/3/search/multi?api_key=66674c972aa10f212a4d8ea3c11ec886&language=en-US&query=${values.search}&page=1&include_adult=false`
     );
     if (response.status === 200) {
       console.log(response.url);
       const browseData = await response.json();
-      console.log("Esto es el data", browseData.results);
+      const findUsers = await fetch(`http://localhost:3000/user/browse`, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          username: values.search,
+        }),
+      });
+      if (findUsers.status === 200) {
+        const foundUsersData = await findUsers.json();
+        setUsersFound(foundUsersData);
+        console.log(foundUsersData, "esto son los usuarios encontrados");
+      }
       setSearch(browseData.results);
     } else if (response.status === 400) {
       console.log("Error");
@@ -42,16 +56,30 @@ export default function Browse() {
                 className={"registerInput"}
               ></Input>
             </div>
-            <ArrowButton
-              disabled={isSubmitting}
-              className={"bigBtnGreen"}
-              arrowFill="var(--black)"
-              arrowSize={24}
-            />
           </Form>
+          {usersFound?.length > 0 && <h3>Users found</h3>}
+          <div className="userCardsContainer">
+            {usersFound &&
+              usersFound.map((userItem) => (
+                <Card
+                  image={` http://localhost:3000/${userItem.img}`}
+                  cardTitle={userItem.username}
+                  to={
+                    userItem.iduser === authorization.iduser
+                      ? `/profile`
+                      : `/user/${userItem.iduser}`
+                  }
+                  title={"View profile "}
+                  starFill={"var(--black)"}
+                  key={userItem.iduser}
+                  cardImgClassName={"cardImageMovie"}
+                />
+              ))}
+          </div>
+          {search?.length > 0 && <h3>Shows found</h3>}
           <div className="searchCardsContainer">
             {!search ? (
-              <p>We couldnt find any movies</p>
+              <p></p>
             ) : (
               search.map((item) => (
                 <Card
