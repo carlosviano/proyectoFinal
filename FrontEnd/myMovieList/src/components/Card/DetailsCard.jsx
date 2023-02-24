@@ -16,7 +16,7 @@ export default function DetailsCard({
       <img src={image}></img>
       <div className="detailsContainer">
         <div className="headerDetailsContent">
-          <Link to={() => goBack()}>
+          <Link to={"../"}>
             <ArrowLeftIcon size={24} />
           </Link>
         </div>

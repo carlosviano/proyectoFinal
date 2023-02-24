@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DetailsCard from "../../components/Card/DetailsCard";
+import { useLoginContext } from "../../contexts/LoginModeContext";
 
 export default function MovieDetails() {
   const [show, setShow] = useState([]);
   const { id } = useParams();
+  const { authorization } = useLoginContext();
 
   useEffect(() => {
     async function getShowById() {
@@ -25,6 +27,26 @@ export default function MovieDetails() {
     }
     getShowById();
   }, []);
+
+  async function addToList() {
+    console.log(show[0], "esto es show");
+    const response = await fetch(
+      `http://localhost:3000/list/add/${authorization.iduser}`,
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          name: show[0].title,
+          type: "movie",
+        }),
+      }
+    );
+    if (response.status === 200) {
+      alert("show added to list");
+    } else {
+      alert("Error when adding show to list");
+    }
+  }
   return (
     <>
       {!show ? (
@@ -40,6 +62,7 @@ export default function MovieDetails() {
             rating={showItem.vote_average}
             description={showItem.overview.substring(0, 200) + "..."}
             key={index}
+            onClick={() => addToList()}
           />
         ))
       )}

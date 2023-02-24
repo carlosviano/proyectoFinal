@@ -67,6 +67,7 @@ controller.loginUser = async (req, res) => {
 };
 
 controller.updateImage = async (req, res) => {
+  console.log(req.files);
   try {
     if (req.files === null) return;
 
@@ -127,22 +128,21 @@ controller.updateProfile = async (req, res) => {
 };
 
 controller.getUserByUsername = async (req, res) => {
-  const { username } = req.body
+  const { username } = req.body;
 
-  console.log(req.body)
+  console.log(req.body);
 
   if (!username) return res.status(400).send("Error al recibir el body");
   try {
-    const user = await dao.getUserByUsername(username)
+    const user = await dao.getUserByUsername(username);
 
     return res.send(user);
   } catch (e) {
-    console.log(e.message)
+    console.log(e.message);
   }
-}
+};
 
 controller.getFollows = async (req, res) => {
-
   try {
     const follows = await dao.getFollowsById(req.params.id);
 
@@ -154,11 +154,11 @@ controller.getFollows = async (req, res) => {
   } catch (e) {
     console.log(e.message);
   }
-}
+};
 
 controller.unfollowUserById = async (req, res) => {
-  const { user } = req.body
-  console.log(req.body)
+  const { user } = req.body;
+  console.log(req.body);
   try {
     const unfollow = await dao.unfollowUserById(user, req.params.id);
 
@@ -170,11 +170,11 @@ controller.unfollowUserById = async (req, res) => {
   } catch (e) {
     console.log(e.message);
   }
-}
+};
 
 controller.followUser = async (req, res) => {
-  const { user } = req.body
-  console.log()
+  const { user } = req.body;
+  console.log();
   try {
     const startToFollow = await dao.followUserById(user, req.params.id);
 
@@ -184,7 +184,7 @@ controller.followUser = async (req, res) => {
 
     return res.send(startToFollow);
   } catch (e) {
-    console.log(e.message)
+    console.log(e.message);
   }
-}
+};
 export default controller;

@@ -66,3 +66,11 @@
 .mainFeedCardUserInfo div {
 margin: 24px;
 }
+
+
+@media(max-width:1600px){ 
+    .mainFeedCardContainer{
+        height: 60vh;
+    }
+
+}

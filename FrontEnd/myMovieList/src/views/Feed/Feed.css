@@ -88,3 +88,10 @@ input.addPostInput {
 .inputAddPostContainer {
     border-bottom: 1px solid var(--gray01);
 }
+
+@media(max-width:1600px){ 
+    .feedAddPostContainer{
+        height: 56vh;
+    }
+
+}

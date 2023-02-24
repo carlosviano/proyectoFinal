@@ -48,3 +48,15 @@
 .bannerNoImageDescription {
     padding-top: 16px;
 }
+
+@media(max-width:1600px){ 
+.bannerNoImage { 
+    width: 48%;
+}
+}
+
+@media(max-width:480px){ 
+.bannerNoImage { 
+    width: 100%;
+}
+}

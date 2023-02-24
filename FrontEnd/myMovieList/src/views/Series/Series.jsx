@@ -23,7 +23,6 @@ export default function Series() {
 
   return (
     <>
-      <h1>TOP RATED SHOWS</h1>
       <div className="seriesMainContainer">
         {!showsList ? (
           <p>We couldnt find any shows</p>

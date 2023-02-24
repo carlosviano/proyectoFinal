@@ -67,7 +67,7 @@ export default function Profile() {
           </div>
           <div className="profileFirstBody">
             <div className="profileFirstBodyName">
-              <h2>{user.username?.toUpperCase()}</h2>
+              <h2>{user?.username?.toUpperCase()}</h2>
             </div>
             <div className="profileFirstBodyRegDate">
               <h6>joined {user.reg_date}</h6>
@@ -95,7 +95,7 @@ export default function Profile() {
                       changeList={changeList}
                       setChangeList={setChangeList}
                       icon={<PencilIcon size={16} />}
-                      removeIco={<XIcon size={16} fill={"red"} />}
+                      removeIcon={<XIcon size={16} fill={"red"} />}
                     />
                   ))
                 : user.posts?.map((post, index) => (

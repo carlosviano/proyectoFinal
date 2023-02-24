@@ -30,3 +30,20 @@
 .imageBannerFooterInformation {
     padding-left: 24px;
 }
+
+@media(max-width:1600px){ 
+    .imageBannerContainer {
+        width: 46%;
+    }
+}
+
+@media(max-width:768px){ 
+    .imageBannerContainer {
+        width: 100%;
+    }
+}
+@media(max-width:480px){ 
+    .imageBannerContainer {
+        width: 100%;
+    }
+}

@@ -36,7 +36,7 @@ export default function UserList() {
       <div className="userListDetailsTitles">
         {user ? (
           <div className="userListDetailsTitle">
-            <h2>{authorization.username.toUpperCase()}'s LIST</h2>
+            <h2>{authorization.username}'s LIST</h2>
           </div>
         ) : (
           <div className="userListDetailsEmptyTitle">
