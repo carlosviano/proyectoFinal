@@ -4,6 +4,7 @@ import image from "./images/luffyPP.jpg";
 import image2 from "./images/spiderman.jpg";
 import { useEffect, useState } from "react";
 import { useLoginContext } from "../../contexts/LoginModeContext";
+import { PencilIcon, XIcon } from "@primer/octicons-react";
 
 export default function UserList() {
   const [user, setUser] = useState([]);
@@ -33,12 +34,15 @@ export default function UserList() {
   return (
     <div className="userListDetailsMainContainer">
       <div className="userListDetailsTitles">
-        <div className="userListDetailsTitle">
-          <h2>USERNAME ALL SHOWS LIST</h2>
-        </div>
-        <div className="userListDetailsEmptyTitle">
-          <h5>You dont have items in this list yet</h5>
-        </div>
+        {user ? (
+          <div className="userListDetailsTitle">
+            <h2>{authorization.username.toUpperCase()}'s LIST</h2>
+          </div>
+        ) : (
+          <div className="userListDetailsEmptyTitle">
+            <h5>You dont have items in this list yet</h5>
+          </div>
+        )}
       </div>
       {user.list?.map((listItem, index) => (
         <ListCard
@@ -52,6 +56,8 @@ export default function UserList() {
           key={index}
           changeList={changeList}
           setChangeList={setChangeList}
+          icon={<PencilIcon size={16} />}
+          removeIcon={<XIcon size={16} fill={"red"} />}
         />
       ))}
     </div>

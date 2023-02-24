@@ -7,4 +7,5 @@ listRouter.post('/add/:id', listController.addToList)
 
 listRouter.patch('/update/:id', listController.updateList)
 
+listRouter.delete('/remove/:id', listController.removeShow)
 export default listRouter

@@ -17,4 +17,8 @@ userRouter.patch('/update/info/:id', userController.updateProfile)
 userRouter.post('/browse', userController.getUserByUsername)
 
 userRouter.get('/follows/:id', userController.getFollows)
+
+userRouter.delete('/unfollow/:id', userController.unfollowUserById)
+
+userRouter.post('/startFollow/:id', userController.followUser)
 export default userRouter

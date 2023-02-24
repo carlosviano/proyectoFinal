@@ -134,4 +134,32 @@ userQueries.getFollowsById = async (id) => {
         conn && await conn.end();
     }
 }
+
+userQueries.unfollowUserById = async (user, id) => {
+    let conn = null
+    try {
+        conn = await db.createConnection();
+        return await db.query('DELETE from follows where user = ? AND following = ? ', [user, id], 'delete', conn)
+    } catch (e) {
+        throw new Error(e)
+    } finally {
+        conn && await conn.end()
+    }
+}
+
+userQueries.followUserById = async (user, id) => {
+    let conn = null
+    try {
+        conn = await db.createConnection();
+        let userObj = {
+            user: user,
+            following: id
+        }
+        return await db.query('INSERT INTO follows set ?  ', [userObj], 'delete', conn)
+    } catch (e) {
+        throw new Error(e)
+    } finally {
+        conn && await conn.end()
+    }
+}
 export default userQueries

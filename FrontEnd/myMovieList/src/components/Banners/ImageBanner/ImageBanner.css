@@ -2,9 +2,9 @@
     width: 48%; 
     border-radius: 16px;
     overflow: hidden;
-    background-image: url(https://hips.hearstapps.com/hmg-prod/images/wednesday-s1-e2-00-42-32-17r-1670014369.jpg);
+    /* background-image: url(https://hips.hearstapps.com/hmg-prod/images/wednesday-s1-e2-00-42-32-17r-1670014369.jpg); */
     background-size: cover;
-    background-position: 48%;
+    background-position: center;
     -webkit-filter: brightness(1.5);
     filter: brightness(1.5);
     display: flex;

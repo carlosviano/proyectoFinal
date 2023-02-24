@@ -1,4 +1,4 @@
-import { CheckIcon, PencilIcon } from "@primer/octicons-react";
+import { CheckIcon, PencilIcon, XIcon } from "@primer/octicons-react";
 import { useState } from "react";
 import { useLoginContext } from "../../contexts/LoginModeContext";
 import "./ListCard.css";
@@ -11,6 +11,7 @@ export default function ListCard({
   setChangeList,
   changeList,
   icon,
+  removeIcon,
 }) {
   const [editable, setEditable] = useState(false);
   const [ratingValue, setRatingValue] = useState("");
@@ -45,6 +46,25 @@ export default function ListCard({
     }
   }
 
+  async function RemoveShow(e, name) {
+    e.preventDefault();
+    const respuesta = await fetch(
+      `http://localhost:3000/list/remove/${authorization.iduser}`,
+      {
+        method: "DELETE",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          show: name,
+        }),
+      }
+    );
+    if (respuesta.status === 200) {
+      alert("show deleted from list");
+      setChangeList(!changeList);
+    } else {
+      alert("Couldnt delete show");
+    }
+  }
   return (
     <div className="listCardDetails">
       <div className="listCardImageNameGroup">
@@ -132,8 +152,8 @@ export default function ListCard({
           </div>
         </div>
       </div>
-      <div className="listCardRemove">
-        <h6>X</h6>
+      <div className="listCardRemove" onClick={(e) => RemoveShow(e, name)}>
+        {removeIcon}
       </div>
     </div>
   );

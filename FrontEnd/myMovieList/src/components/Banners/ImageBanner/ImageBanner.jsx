@@ -9,7 +9,13 @@ export default function ImageBannern({
   to,
 }) {
   return (
-    <div className="imageBannerContainer">
+    <div
+      className="imageBannerContainer"
+      style={{
+        backgroundImage:
+          "url(https://hips.hearstapps.com/hmg-prod/images/wednesday-s1-e2-00-42-32-17r-1670014369.jpg)",
+      }}
+    >
       <div className="imageBannerHeader">
         <Label title={title} className={className} />
       </div>

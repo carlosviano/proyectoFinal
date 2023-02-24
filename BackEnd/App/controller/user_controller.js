@@ -156,4 +156,35 @@ controller.getFollows = async (req, res) => {
   }
 }
 
+controller.unfollowUserById = async (req, res) => {
+  const { user } = req.body
+  console.log(req.body)
+  try {
+    const unfollow = await dao.unfollowUserById(user, req.params.id);
+
+    if (!unfollow) {
+      console.log("Error when trying to unfollow user");
+    }
+
+    return res.send(unfollow);
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
+controller.followUser = async (req, res) => {
+  const { user } = req.body
+  console.log()
+  try {
+    const startToFollow = await dao.followUserById(user, req.params.id);
+
+    if (!startToFollow) {
+      console.log("Error when trying to follow user");
+    }
+
+    return res.send(startToFollow);
+  } catch (e) {
+    console.log(e.message)
+  }
+}
 export default controller;

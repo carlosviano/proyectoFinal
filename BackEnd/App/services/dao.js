@@ -29,4 +29,10 @@ dao.updateList = async (id, listData) => await listQueries.updateList(id, listDa
 dao.getUserByUsername = async (username) => await userQueries.getUserByUsername(username)
 
 dao.getFollowsById = async (id) => await userQueries.getFollowsById(id)
+
+dao.unfollowUserById = async (user, id) => await userQueries.unfollowUserById(user, id)
+
+dao.removeShow = async (show, id) => await listQueries.removeShow(show, id)
+
+dao.followUserById = async (user, id) => await userQueries.followUserById(user, id)
 export default dao;

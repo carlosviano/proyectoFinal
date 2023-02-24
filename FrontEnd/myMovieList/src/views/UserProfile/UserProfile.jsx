@@ -61,8 +61,42 @@ export default function UserProfile() {
       }
     }
     GetFollows();
-  }, []);
+  }, [changeList]);
 
+  async function UnfollowUser(e) {
+    e.preventDefault();
+    const response = await fetch(`http://localhost:3000/user/unfollow/${id}`, {
+      method: "DELETE",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        user: authorization.iduser,
+      }),
+    });
+    if (response.status === 200) {
+      setChangeList(!changeList);
+    } else {
+      alert("Error");
+    }
+  }
+
+  async function FollowUser(e) {
+    e.preventDefault();
+    const response = await fetch(
+      `http://localhost:3000/user/startFollow/${id}`,
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          user: authorization.iduser,
+        }),
+      }
+    );
+    if (response.status === 200) {
+      setChangeList(!changeList);
+    } else {
+      alert("Error");
+    }
+  }
   return (
     <div className="profileContainer">
       {!user ? (
@@ -86,12 +120,19 @@ export default function UserProfile() {
               <h6>joined {user.reg_date}</h6>
             </div>
             <div className="profileFirstBodyFollow">
-              <Label
-                title={
-                  followsList?.includes(user.iduser) ? "Following" : "Follow"
-                }
-                className={"labelContainer"}
-              />
+              {followsList?.includes(user.iduser) ? (
+                <div className="followLabel">
+                  <Label
+                    onClick={(e) => UnfollowUser(e)}
+                    className={"labelContainer"}
+                    title={"Following"}
+                  />
+                </div>
+              ) : (
+                <div className="followLabel" onClick={(e) => FollowUser(e)}>
+                  <Label className={"labelContainer"} title={"Follow"} />
+                </div>
+              )}
             </div>
           </div>
           <div className="profileMainBody">

@@ -1,4 +1,9 @@
-import { ArrowLeftIcon, GearIcon, PencilIcon } from "@primer/octicons-react";
+import {
+  ArrowLeftIcon,
+  GearIcon,
+  PencilIcon,
+  XIcon,
+} from "@primer/octicons-react";
 import "./Profile.css";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
@@ -90,6 +95,7 @@ export default function Profile() {
                       changeList={changeList}
                       setChangeList={setChangeList}
                       icon={<PencilIcon size={16} />}
+                      removeIco={<XIcon size={16} fill={"red"} />}
                     />
                   ))
                 : user.posts?.map((post, index) => (

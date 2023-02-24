@@ -43,4 +43,19 @@ controller.updateList = async (req, res) => {
   }
 };
 
+controller.removeShow = async (req, res) => {
+  const { show } = req.body
+  console.log(req.body)
+  try {
+    const removeShow = await dao.removeShow(show, req.params.id);
+
+    if (!removeShow) {
+      console.log("Error when trying to unfollow user");
+    }
+
+    return res.send(removeShow);
+  } catch (e) {
+    console.log(e.message);
+  }
+}
 export default controller;

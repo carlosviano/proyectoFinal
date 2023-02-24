@@ -54,4 +54,16 @@ listQueries.updateList = async (id, listData) => {
         conn && await conn.end();
     }
 }
+
+listQueries.removeShow = async (show, id) => {
+    let conn = null
+    try {
+        conn = await db.createConnection();
+        return await db.query('DELETE FROM List where name = ? and user = ?', [show, id,], 'delete', conn)
+    } catch (e) {
+        throw new Error(e);
+    } finally {
+        conn && await conn.end();
+    }
+}
 export default listQueries
