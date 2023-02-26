@@ -8,8 +8,11 @@
 }
 
 .mainFeedCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    padding: 8px 16px;
+    padding: 8px 24px;
 }
 
 .mainFeedCardBody {
@@ -67,10 +70,37 @@
 margin: 24px;
 }
 
+.mainFeedCardTitleRemove:hover {
+    cursor: pointer;
+}
 
 @media(max-width:1600px){ 
     .mainFeedCardContainer{
         height: 60vh;
     }
 
+}
+
+.removePostMessageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.removePostCTA {
+    display: flex;
+}
+
+.removePostCTA div {
+ margin: 24px;
+}
+
+.removePostMessageConfirm p {
+    color: red;
+}
+.removePostMessageConfirm:hover, .removePostMessageReturn:hover   {
+    cursor: pointer;
 }

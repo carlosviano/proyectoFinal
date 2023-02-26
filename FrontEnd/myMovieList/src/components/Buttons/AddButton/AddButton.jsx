@@ -16,7 +16,6 @@ export default function AddButton({
         className={className}
         onClick={onClick}
       >
-        {" "}
         <PlusIcon size={plusSize} fill={plusFill} />
       </button>
     </>

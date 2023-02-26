@@ -26,11 +26,18 @@ export default function Header() {
       <div className="headerContainerRight">
         {authorization.role !== null
           ? headerMenuLoggedIn.map((loginItem, index) => (
-              <Link to={loginItem.path} key={index}>
-                <div className="userIcon">
-                  <PersonIcon size={24} fill={"gray"} />
-                </div>
-              </Link>
+              <>
+                <Link to={loginItem.path} key={index}>
+                  <div className="userIcon">
+                    <PersonIcon size={24} fill={"gray"} />
+                  </div>
+                </Link>
+                <Link to={"/editProfile"}>
+                  <div className="settingsIcon">
+                    <GearIcon size={24} fill={"gray"} />
+                  </div>
+                </Link>
+              </>
             ))
           : headerMenu.map((menuItem, index) => (
               <Link to={menuItem.path} key={index}>
@@ -39,11 +46,6 @@ export default function Header() {
                 </div>
               </Link>
             ))}
-        <Link to={"/editProfile"}>
-          <div className="settingsIcon">
-            <GearIcon size={24} fill={"gray"} />
-          </div>
-        </Link>
       </div>
     </div>
   );

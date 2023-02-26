@@ -36,7 +36,6 @@ controller.addPublication = async (req, res) => {
         text: text,
       });
     });
-
     return res.send(
       `Publicacion de usuario ${req.params.id} con titulo ${title} posteada con exito`
     );
@@ -52,10 +51,21 @@ controller.getUserFeed = async (req, res) => {
     if (!feed) {
       console.log("Error when trying to fetch feed");
     }
-
     return res.send(feed);
   } catch (e) {
     console.log(e.message);
   }
 };
+
+controller.deletePost = async (req, res) => {
+  try {
+    const postDeleted = await dao.deletePostById(req.params.id)
+    if (!postDeleted) {
+      console.log("Error when trying to delete the post")
+    }
+    return res.send(postDeleted)
+  } catch (e) {
+    console.log(e.message)
+  }
+}
 export default controller;

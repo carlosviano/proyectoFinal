@@ -21,7 +21,6 @@ export default function Home() {
           bannerTitle={"TOP"}
           greenText={"100"}
           userName={"Adrian Parrado Parry"}
-          postViews={"100k Views"}
           description={
             " Torrente 3 fue toxico robotico asombroso manejo del lexico hoy el rap en espanol no solo se hace en nuevo Mexico"
           }

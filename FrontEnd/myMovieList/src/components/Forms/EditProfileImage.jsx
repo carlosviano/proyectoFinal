@@ -4,19 +4,18 @@ import { EditProfileFormSchema } from "./FormSchema";
 import Input from "../ui/Input";
 import ArrowButton from "../Buttons/ArrowButton/ArrowButton";
 import { useLoginContext } from "../../contexts/LoginModeContext";
+import { useEffect, useState } from "react";
 
 export default function EditProfileForm() {
   const { authorization } = useLoginContext();
+  const [changeUserInfo, setChangeUserInfo] = useState(false);
 
   const submitImage = (values, actions) => {
-    let formdataInfo = new FormData();
-    formdataInfo.append("file", values.file);
-    formdataInfo.append("name", values.name);
-    formdataInfo.append("surname", values.surname);
-    formdataInfo.append("username", values.username);
+    let formdataImage = new FormData();
+    formdataImage.append("file", values.file);
     fetch(`http://localhost:3000/user/update/image/${authorization.iduser}`, {
       method: "PATCH",
-      body: formdataInfo,
+      body: formdataImage,
     }).then((response) => {
       console.log(response.status);
       if (response.status === 400) {
@@ -26,15 +25,13 @@ export default function EditProfileForm() {
       }
     });
     actions.resetForm();
+    setChangeUserInfo(!changeUserInfo);
     console.log(values.name);
   };
+  useEffect(() => {}, [changeUserInfo]);
 
   return (
-    <Formik
-      initialValues={initialRegisterValues}
-      validationSchema={EditProfileFormSchema}
-      onSubmit={submitImage}
-    >
+    <Formik initialValues={initialRegisterValues} onSubmit={submitImage}>
       {({ isSubmitting, setFieldValue }) => (
         <Form className="formRegister">
           <div className="inputContainer">
@@ -51,40 +48,7 @@ export default function EditProfileForm() {
               }}
             ></Input>
           </div>
-          <div className="inputContainer">
-            <h6>First Name</h6>
-            <Input
-              name="name"
-              type="text"
-              className={"registerInput"}
-              placeholder={authorization.name}
-            ></Input>
-          </div>
-          <div className="inputContainer">
-            <h6>Last Name</h6>
-            <Input
-              name="surname"
-              type="text"
-              className={"registerInput"}
-              placeholder={authorization.surname}
-            ></Input>
-          </div>
-          <div className="inputContainer">
-            <h6>Username</h6>
-            <Input
-              name="username"
-              type="text"
-              className={"registerInput"}
-              placeholder={authorization.username}
-            ></Input>
-          </div>
-
-          <ArrowButton
-            disabled={isSubmitting}
-            className={"bigBtnGreen"}
-            arrowFill="var(--black)"
-            arrowSize={24}
-          />
+          <ArrowButton className={"smallBtnGreen"} />
         </Form>
       )}
     </Formik>

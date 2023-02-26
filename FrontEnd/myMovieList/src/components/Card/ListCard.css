@@ -3,7 +3,7 @@
     display: flex;
     padding: 8px;
     justify-content: space-around;
-    border-top: 1px solid grey;
+    border-top: 1px solid var(--gray03);
     width: 100%;
 }
 
@@ -28,7 +28,7 @@
 .listCardRightGroup {
     display: flex;
     justify-content: flex-end;
-    width: 30%px;
+    width: 30%;
 }
 
 .listCardMiddleGroup {
@@ -59,3 +59,22 @@
     padding-left: 8px;
     padding-right: 8px;
 }
+
+.removerQuestion {
+    display: flex;
+    justify-content: center;
+border-top: 1px solid var(--gray03);
+}
+
+.removerQuestion div{
+  padding: 8px;
+}
+
+.removerQuestionConfirm:hover, .removerQuestionReject:hover, .listCardRemove:hover, .selectProgressConfirm:hover,.listCardIcon:hover,.selectRatingConfirm:hover{
+  cursor: pointer;
+}
+
+.removerQuestionConfirm p {
+    color: red;
+}
+

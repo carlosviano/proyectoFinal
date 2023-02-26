@@ -82,7 +82,7 @@ userQueries.getFeedById = async (id) => {
     let conn = null
     try {
         conn = await db.createConnection();
-        return await db.query('SELECT post.*, user.username, user.img as profilePicture FROM follows LEFT JOIN post ON post.user = follows.following JOIN user on post.user = user.iduser WHERE follows.user = ? order by reg_date desc', id, 'select', conn)
+        return await db.query('SELECT post.*, user.username, user.img as profilePicture FROM follows LEFT JOIN post ON post.user = follows.following JOIN user on post.user = user.iduser WHERE follows.user = ? order by idpost desc', id, 'select', conn)
     } catch (e) {
         throw new Error(e)
     } finally {

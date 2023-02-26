@@ -124,7 +124,7 @@ export default function UserProfile() {
                 <div className="followLabel">
                   <Label
                     onClick={(e) => UnfollowUser(e)}
-                    className={"labelContainer"}
+                    className={"labelContainerGreen"}
                     title={"Following"}
                   />
                 </div>

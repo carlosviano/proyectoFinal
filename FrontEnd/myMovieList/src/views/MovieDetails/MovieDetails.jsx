@@ -2,11 +2,29 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DetailsCard from "../../components/Card/DetailsCard";
 import { useLoginContext } from "../../contexts/LoginModeContext";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function MovieDetails() {
   const [show, setShow] = useState([]);
   const { id } = useParams();
   const { authorization } = useLoginContext();
+
+  const sucessfulAlert = () =>
+    toast.success(<p>Show added to list</p>, {
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
+  const deniedAlert = () =>
+    toast.error(<p>Show already on your list</p>, {
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
 
   useEffect(() => {
     async function getShowById() {
@@ -42,9 +60,9 @@ export default function MovieDetails() {
       }
     );
     if (response.status === 200) {
-      alert("show added to list");
+      sucessfulAlert();
     } else {
-      alert("Error when adding show to list");
+      deniedAlert();
     }
   }
   return (

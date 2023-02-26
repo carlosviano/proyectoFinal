@@ -35,4 +35,7 @@ dao.unfollowUserById = async (user, id) => await userQueries.unfollowUserById(us
 dao.removeShow = async (show, id) => await listQueries.removeShow(show, id)
 
 dao.followUserById = async (user, id) => await userQueries.followUserById(user, id)
+
+dao.deletePostById = async (id) => await publicationQueries.deletePostById(id)
+
 export default dao;

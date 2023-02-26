@@ -90,7 +90,7 @@ export default function Browse() {
                   cardTitle={item.title ? item.title : item.name}
                   movieRating={item.vote_average}
                   to={item.title ? `/movies/${item.id}` : `/series/${item.id}`}
-                  title={"Add To List"}
+                  title={"View Details"}
                   starFill={"gold"}
                   key={item.id}
                   cardImgClassName={"cardImageMovie"}

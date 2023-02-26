@@ -1,14 +1,13 @@
 import { Form, Formik, useFormik } from "formik";
 import { initialAddPostValues } from "./utils/initialValues";
 import { AddPostFormSchema } from "./FormSchema";
-import { Link } from "react-router-dom";
 import Input from "../ui/Input";
 import ArrowButton from "../Buttons/ArrowButton/ArrowButton";
 import { ImageIcon } from "@primer/octicons-react";
 import { useLoginContext } from "../../contexts/LoginModeContext";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function AddPostForm() {
+export default function AddPostForm({ setChangeFeed, changeFeed }) {
   const { authorization } = useLoginContext();
   const [preview, setPreview] = useState();
 
@@ -27,7 +26,7 @@ export default function AddPostForm() {
       if (response.status === 400) {
         alert("Error al recibir el body");
       } else if (response.status === 200) {
-        alert(`post con titulo ${values.title} subido`);
+        setChangeFeed(!changeFeed);
         console.log(values);
       } else if (response.status === 409) {
         alert("Usuario ya registrado");
@@ -51,11 +50,17 @@ export default function AddPostForm() {
                 name="title"
                 type="text"
                 className={"addPostInput"}
+                placeholder={"Insert post title here"}
               ></Input>
             </div>
             <div className="inputAddPostText">
               <h6>Insert text</h6>
-              <Input name="text" type="text" className={"addPostInput"}></Input>
+              <Input
+                name="text"
+                type="text"
+                className={"addPostInput"}
+                placeholder={"Insert review here"}
+              ></Input>
             </div>
           </div>
           <div className="imageInputContainer">

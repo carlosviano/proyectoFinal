@@ -11,7 +11,13 @@
 
 .verticalHeaderContainerTitle {
     padding: 16px;
+    display: flex;
+    align-items: center;
 }
+.titleIcon{
+    padding: 8px 16px;
+}
+
 
 .verticalHeaderMainContainer a {
     color: var(--white);

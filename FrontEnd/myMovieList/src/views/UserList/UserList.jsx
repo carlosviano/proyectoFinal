@@ -4,7 +4,7 @@ import image from "./images/luffyPP.jpg";
 import image2 from "./images/spiderman.jpg";
 import { useEffect, useState } from "react";
 import { useLoginContext } from "../../contexts/LoginModeContext";
-import { PencilIcon, XIcon } from "@primer/octicons-react";
+import { PencilIcon, TrashIcon, XIcon } from "@primer/octicons-react";
 
 export default function UserList() {
   const [user, setUser] = useState([]);
@@ -57,7 +57,7 @@ export default function UserList() {
           changeList={changeList}
           setChangeList={setChangeList}
           icon={<PencilIcon size={16} />}
-          removeIcon={<XIcon size={16} fill={"red"} />}
+          removeIcon={<TrashIcon size={16} />}
         />
       ))}
     </div>

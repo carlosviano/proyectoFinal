@@ -45,7 +45,7 @@
 height: 100%;
 display: flex;
 flex-direction: column;
-padding-left: 8px;
+padding: 8px;
 }
 
 .feedAddPostFooter {
@@ -64,6 +64,9 @@ input.addPostInput {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+}
+.feedAddPostHeader {
+ padding: 8px;
 }
 
 .image-upload {
@@ -95,3 +98,4 @@ input.addPostInput {
     }
 
 }
+

@@ -13,6 +13,14 @@
     border:transparent;
     background-color: var(--gray01);
    }
+   
+.smallBtnGreen {
+    height: 24px;
+    width: 24px;
+    border-radius:50%;
+    border:transparent;
+    background-color: var(--green);
+   }
 
 .mediumBtnBlack {
     height: 32px;
