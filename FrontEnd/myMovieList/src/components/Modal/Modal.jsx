@@ -4,7 +4,7 @@ import "./Modal.css";
 
 export default function Modal({ title, image, text, username, date, onClick }) {
   return (
-    <div className="overlay">
+    <div className="overlay" onClick={onClick}>
       <div className="modalContainer">
         <div className="modalContainerCard">
           <div className="mainFeedCardHeader">

@@ -26,3 +26,10 @@
 a:hover {
     color: var(--green);
   }
+
+  @media (max-width: 946px) {
+    .titleText {
+        display: none;
+    }
+
+}

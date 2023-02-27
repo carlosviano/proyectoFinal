@@ -14,3 +14,9 @@
     width: 80%;
     height: 100vh;
 }
+
+@media (max-width: 946px) {
+    .verticalLayOutSideBar {
+        padding: 0px;
+    }
+}

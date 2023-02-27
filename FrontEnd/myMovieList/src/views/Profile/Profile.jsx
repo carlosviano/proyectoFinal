@@ -6,11 +6,10 @@ import {
 } from "@primer/octicons-react";
 import "./Profile.css";
 import { Link } from "react-router-dom";
-import Card from "../../components/Card/Card";
 import { useEffect, useState } from "react";
 import { useLoginContext } from "../../contexts/LoginModeContext";
 import ListCard from "../../components/Card/ListCard";
-import Modal from "../../components/Modal/Modal";
+import ProfileCard from "../../components/Card/ProfileCard/ProfileCard";
 
 export default function Profile() {
   const [user, setUser] = useState([]);
@@ -18,7 +17,6 @@ export default function Profile() {
   const [post, setPost] = useState(true);
   const [changeList, setChangeList] = useState(false);
   const [userStats, setUserStats] = useState([]);
-  const [showModal, setShowModal] = useState(true);
 
   function togglePost() {
     console.log(post);
@@ -41,7 +39,6 @@ export default function Profile() {
       if (response.status === 200) {
         const usuario = await response.json();
         setUser(usuario);
-        console.log("Esto es la response.json", usuario);
       } else {
         console.log("There was an error loading userData");
       }
@@ -61,12 +58,9 @@ export default function Profile() {
       );
       if (response.status === 200) {
         const userData = await response.json();
-        console.log(userData, "esto es userData");
         setUserStats(userData);
-        console.log(showModal, "this is showModal");
       } else {
         alert("Error when fetching userData");
-        console.log(response.status);
       }
     }
     fetchStats();
@@ -141,7 +135,7 @@ export default function Profile() {
                   ))
                 : user.posts?.map((post) => (
                     <>
-                      <Card
+                      <ProfileCard
                         to={"/profile"}
                         cardTitle={post.post}
                         image={` http://localhost:3000/${post.image}`}

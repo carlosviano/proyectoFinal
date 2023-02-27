@@ -4,10 +4,6 @@
     color: var(--white);
 }
 
-.feedPost div {
-margin: 16px;
-}
-
 .mainFeedHeader {
     max-width: 100%;
     display: flex;
@@ -97,8 +93,9 @@ input.addPostInput {
 
 @media(max-width:1600px){ 
     .feedAddPostContainer{
-        height: 56vh;
+        height: 64vh;
     }
 
 }
+
 
