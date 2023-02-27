@@ -128,9 +128,7 @@ export default function UserProfile() {
       ) : (
         <div className="profileContent">
           <div className="profileHeader">
-            <div className="profileHeaderLeftIcon">
-              <ArrowLeftIcon size={24} />
-            </div>
+            <div className="profileHeaderLeftIcon"></div>
             <div className="profileHeaderUserPicture">
               <img src={` http://localhost:3000/${user?.profilePicture}`}></img>
             </div>
@@ -205,6 +203,9 @@ export default function UserProfile() {
                       starFill={"var(--black)"}
                       key={index}
                       cardImgClassName={"cardImage"}
+                      modalImage={` http://localhost:3000/${post.image}`}
+                      modalText={post.text}
+                      modalTitle={post.post}
                     />
                   ))}
             </div>

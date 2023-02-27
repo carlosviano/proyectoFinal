@@ -78,7 +78,12 @@ export default function Card({
               </div>
             </div>
           </div>
-          <Modal title={modalTitle} image={modalImage} text={modalText} />
+          <Modal
+            title={modalTitle}
+            image={modalImage}
+            text={modalText}
+            onClick={() => toggleModal()}
+          />
         </>
       )}
     </>

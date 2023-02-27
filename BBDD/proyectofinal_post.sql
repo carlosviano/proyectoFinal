@@ -16,36 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `list`
+-- Table structure for table `post`
 --
 
-DROP TABLE IF EXISTS `list`;
+DROP TABLE IF EXISTS `post`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `list` (
-  `idlist` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `post` (
+  `idpost` int NOT NULL AUTO_INCREMENT,
   `user` int NOT NULL,
-  `state` enum('currently watching','watched','plan to watch') NOT NULL DEFAULT 'currently watching',
-  `reg_date` datetime DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
+  `text` varchar(400) NOT NULL,
+  `img` varchar(128) NOT NULL,
+  `reg_date` varchar(45) DEFAULT NULL,
+  `title` varchar(30) NOT NULL,
   `rating` int DEFAULT NULL,
-  `type` enum('tv show','movie') NOT NULL,
-  `image` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idlist`),
-  UNIQUE KEY `idList_UNIQUE` (`idlist`),
-  KEY `listuser_fk_idx` (`user`),
-  CONSTRAINT `listuser_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`idpost`),
+  UNIQUE KEY `idpost_UNIQUE` (`idpost`),
+  KEY `user_fk_idx` (`user`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `list`
+-- Dumping data for table `post`
 --
 
-LOCK TABLES `list` WRITE;
-/*!40000 ALTER TABLE `list` DISABLE KEYS */;
-INSERT INTO `list` VALUES (5,1,'currently watching',NULL,'one piece',10,'tv show','images/products/pngwing.com (5).png'),(6,1,'currently watching',NULL,'breaking bad',10,'tv show','images/products/pngwing.com (5).png'),(7,1,'currently watching',NULL,'wednesday',8,'tv show','images/products/pngwing.com (5).png');
-/*!40000 ALTER TABLE `list` ENABLE KEYS */;
+LOCK TABLES `post` WRITE;
+/*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES (15,2,'post usuario 2','images/products/ofnwe.jpg',NULL,'Post user 2',9),(16,3,'post user 3','images/products/ofnwe.jpg',NULL,'Post user 3',9),(17,6,'post user 6','images/products/ofnwe.jpg',NULL,'Post user 6',9),(18,5,'post user 5','images/products/ofnwe.jpg',NULL,'Post user 5',9),(34,1,'sasas','images/products/luffy.png','February 26th 2023, 2:56:37 pm','dsasdasa',NULL),(41,1,'ds[d[lk,asd[oask','images/products/luffyPP.png','February 27th 2023, 1:26:23 pm','este es mi segundo feed',NULL);
+/*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-20 14:00:41
+-- Dump completed on 2023-02-27 14:58:26
