@@ -58,7 +58,7 @@ userQueries.getUserById = async (id) => {
     let conn = null
     try {
         conn = await db.createConnection();
-        return await db.query('SELECT user.iduser,user.username, user.reg_date,user.img as profilePicture, json_arrayagg(post.img) as imagesPost, json_arrayagg(post.title) as postTitles FROM post JOIN user on post.user = user.iduser WHERE iduser = ? group by iduser', id, 'select', conn)
+        return await db.query('SELECT user.iduser,user.username, user.reg_date,user.img as profilePicture, json_arrayagg(post.img) as imagesPost, json_arrayagg(post.title) as postTitles, json_arrayagg(post.text) as postText,  json_arrayagg(post.idpost) as postId FROM post JOIN user on post.user = user.iduser WHERE iduser = ? group by iduser', id, 'select', conn)
     } catch (e) {
         throw new Error(e)
     } finally {
@@ -160,6 +160,33 @@ userQueries.followUserById = async (user, id) => {
         throw new Error(e)
     } finally {
         conn && await conn.end()
+    }
+}
+
+userQueries.countFollowers = async (id) => {
+    let conn = null
+    try {
+        conn = await db.createConnection();
+
+        return await db.query('SELECT COUNT(user) as followers from follows WHERE following = ?', id, 'select', conn)
+
+    } catch (e) {
+        throw new Error(e)
+    } finally {
+        conn & await conn.end
+    }
+}
+userQueries.countFollowing = async (id) => {
+    let conn = null
+    try {
+        conn = await db.createConnection();
+
+        return await db.query('SELECT COUNT(user) as following from follows WHERE user = ?', id, 'select', conn)
+
+    } catch (e) {
+        throw new Error(e)
+    } finally {
+        conn & await conn.end
     }
 }
 export default userQueries

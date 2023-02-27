@@ -4,6 +4,10 @@
     color: var(--white);
 }
 
+.feedPost div {
+margin: 16px;
+}
+
 .mainFeedHeader {
     max-width: 100%;
     display: flex;
@@ -13,7 +17,6 @@
 }
 
 .feedAddPostContainer {
-    height: 32vh;
     border: solid 1px var(--gray01);
     margin: 24px;
     border-radius:24px;

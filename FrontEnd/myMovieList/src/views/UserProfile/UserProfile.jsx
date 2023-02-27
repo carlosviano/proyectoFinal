@@ -14,6 +14,7 @@ export default function UserProfile() {
   const [changeList, setChangeList] = useState(false);
   const { id } = useParams();
   const [followsList, setFollowsList] = useState();
+  const [userStats, setUserStats] = useState([]);
 
   function togglePost() {
     console.log(post);
@@ -97,6 +98,29 @@ export default function UserProfile() {
       alert("Error");
     }
   }
+
+  //getting followers and follows
+  useEffect(() => {
+    async function fetchStats() {
+      const response = await fetch(
+        `http://localhost:3000/user/countFollows/${id}`,
+        {
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+        }
+      );
+      if (response.status === 200) {
+        const userData = await response.json();
+        console.log(userData, "esto es userData");
+        setUserStats(userData);
+      } else {
+        alert("Error when fetching userData");
+        console.log(response.status);
+      }
+    }
+    fetchStats();
+  }, [changeList]);
+
   return (
     <div className="profileContainer">
       {!user ? (
@@ -115,6 +139,20 @@ export default function UserProfile() {
           <div className="profileFirstBody">
             <div className="profileFirstBodyName">
               <h2>{user.username?.toUpperCase()}</h2>
+            </div>
+            <div className="profileFirstBodyStats">
+              {userStats &&
+                userStats?.following?.map((followingItem, index) => (
+                  <div className="profileFirstBodyFollowing" key={index}>
+                    <p>Following: {followingItem.following}</p>
+                  </div>
+                ))}
+              {userStats &&
+                userStats?.followers?.map((followerItem, index) => (
+                  <div className="profileFirstBodyFollowers" key={index}>
+                    <p>Followers: {followerItem.followers}</p>
+                  </div>
+                ))}
             </div>
             <div className="profileFirstBodyRegDate">
               <h6>joined {user.reg_date}</h6>

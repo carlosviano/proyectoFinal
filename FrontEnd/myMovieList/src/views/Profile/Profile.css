@@ -83,3 +83,10 @@
     margin-left: 24px;
     flex-flow: wrap;
 }
+
+.profileFirstBodyStats div {
+    padding: 8px;
+}
+.profileFirstBodyStats {
+    display: flex;
+}

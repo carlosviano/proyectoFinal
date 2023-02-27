@@ -103,9 +103,9 @@ controller.getUserById = async (req, res) => {
     const user = await dao.getUserById(req.params.id);
     if (user) {
       const posts = user[0].imagesPost.map((imagePost, index) => {
-        return { image: imagePost, post: user[0].postTitles[index] };
+        return { image: imagePost, post: user[0].postTitles[index], text: user[0].postText[index], idpost: user[0].postId[index] };
       });
-      const { imagesPost, postTitles, ...rest } = user[0];
+      const { imagesPost, postTitles, postText, postId, ...rest } = user[0];
 
       const list = await dao.getListById(req.params.id);
       const userToFrontFormat = { ...rest, posts, list };
@@ -187,4 +187,25 @@ controller.followUser = async (req, res) => {
     console.log(e.message);
   }
 };
+
+controller.countFollows = async (req, res) => {
+  try {
+    const followers = await dao.countFollowers(req.params.id)
+
+    const following = await dao.countFollowing(req.params.id)
+
+    const userStats = {
+      followers: followers,
+      following: following
+    }
+
+    if (userStats) {
+      console.log("Error when trying to fetch data")
+    }
+
+    return res.send(userStats)
+  } catch (e) {
+    console.log(e.message)
+  }
+}
 export default controller;

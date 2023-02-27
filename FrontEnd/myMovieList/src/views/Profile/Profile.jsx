@@ -10,12 +10,15 @@ import Card from "../../components/Card/Card";
 import { useEffect, useState } from "react";
 import { useLoginContext } from "../../contexts/LoginModeContext";
 import ListCard from "../../components/Card/ListCard";
+import Modal from "../../components/Modal/Modal";
 
 export default function Profile() {
   const [user, setUser] = useState([]);
   const { authorization } = useLoginContext();
   const [post, setPost] = useState(true);
   const [changeList, setChangeList] = useState(false);
+  const [userStats, setUserStats] = useState([]);
+  const [showModal, setShowModal] = useState(true);
 
   function togglePost() {
     console.log(post);
@@ -46,6 +49,29 @@ export default function Profile() {
     getUser();
     console.log(user.username);
   }, [changeList]);
+
+  useEffect(() => {
+    async function fetchStats() {
+      const response = await fetch(
+        `http://localhost:3000/user/countFollows/${authorization.iduser}`,
+        {
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+        }
+      );
+      if (response.status === 200) {
+        const userData = await response.json();
+        console.log(userData, "esto es userData");
+        setUserStats(userData);
+        console.log(showModal, "this is showModal");
+      } else {
+        alert("Error when fetching userData");
+        console.log(response.status);
+      }
+    }
+    fetchStats();
+  }, []);
+
   return (
     <div className="profileContainer">
       {!user ? (
@@ -69,6 +95,21 @@ export default function Profile() {
             <div className="profileFirstBodyName">
               <h2>{user?.username?.toUpperCase()}</h2>
             </div>
+            <div className="profileFirstBodyStats">
+              {userStats &&
+                userStats?.following?.map((followingItem, index) => (
+                  <div className="profileFirstBodyFollowing" key={index}>
+                    <p>Following: {followingItem.following}</p>
+                  </div>
+                ))}
+              {userStats &&
+                userStats?.followers?.map((followerItem, index) => (
+                  <div className="profileFirstBodyFollowers" key={index}>
+                    <p>Followers: {followerItem.followers}</p>
+                  </div>
+                ))}
+            </div>
+
             <div className="profileFirstBodyRegDate">
               <h6>joined {user.reg_date}</h6>
             </div>
@@ -98,16 +139,21 @@ export default function Profile() {
                       removeIcon={<XIcon size={16} fill={"red"} />}
                     />
                   ))
-                : user.posts?.map((post, index) => (
-                    <Card
-                      to={"/profile"}
-                      cardTitle={post.post}
-                      image={` http://localhost:3000/${post.image}`}
-                      title={"View details"}
-                      starFill={"var(--black)"}
-                      key={index}
-                      cardImgClassName={"cardImage"}
-                    />
+                : user.posts?.map((post) => (
+                    <>
+                      <Card
+                        to={"/profile"}
+                        cardTitle={post.post}
+                        image={` http://localhost:3000/${post.image}`}
+                        title={"View details"}
+                        starFill={"var(--black)"}
+                        key={post.idpost}
+                        cardImgClassName={"cardImage"}
+                        modalImage={` http://localhost:3000/${post.image}`}
+                        modalText={post.text}
+                        modalTitle={post.post}
+                      />
+                    </>
                   ))}
             </div>
           </div>

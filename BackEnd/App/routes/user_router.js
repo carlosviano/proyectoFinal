@@ -21,4 +21,6 @@ userRouter.get('/follows/:id', userController.getFollows)
 userRouter.delete('/unfollow/:id', userController.unfollowUserById)
 
 userRouter.post('/startFollow/:id', userController.followUser)
+
+userRouter.get('/countFollows/:id', userController.countFollows)
 export default userRouter

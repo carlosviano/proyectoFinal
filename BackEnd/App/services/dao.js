@@ -38,4 +38,8 @@ dao.followUserById = async (user, id) => await userQueries.followUserById(user, 
 
 dao.deletePostById = async (id) => await publicationQueries.deletePostById(id)
 
+dao.countFollowers = async (id) => await userQueries.countFollowers(id)
+
+dao.countFollowing = async (id) => await userQueries.countFollowing(id)
+
 export default dao;
