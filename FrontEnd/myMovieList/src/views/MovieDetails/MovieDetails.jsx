@@ -67,6 +67,7 @@ export default function MovieDetails() {
   }
   return (
     <>
+      <Toaster />
       {!show ? (
         <p>There was an error when trying to load the shows</p>
       ) : (

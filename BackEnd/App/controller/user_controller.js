@@ -10,6 +10,8 @@ const controller = {};
 controller.addUser = async (req, res) => {
   const { email, password, name, surname, username } = req.body;
 
+  console.log(req.body);
+
   if (!email || !password || !name || !surname || !username)
     return res.status(400).send("Error al recibir el body");
 
@@ -101,14 +103,23 @@ controller.updateImage = async (req, res) => {
 controller.getUserById = async (req, res) => {
   try {
     const user = await dao.getUserById(req.params.id);
-    if (user) {
-      const posts = user[0].imagesPost.map((imagePost, index) => {
-        return { image: imagePost, post: user[0].postTitles[index], text: user[0].postText[index], idpost: user[0].postId[index] };
-      });
-      const { imagesPost, postTitles, postText, postId, ...rest } = user[0];
 
+    const posts = await dao.getPostById(req.params.id);
+
+    if (posts) {
+      const publicaciones = posts[0].imagesPost?.map((imagePost, index) => {
+        return {
+          image: imagePost,
+          post: posts[0].postTitles[index],
+          text: posts[0].postText[index],
+          idpost: posts[0].postId[index],
+        };
+      });
+
+      const { imagesPost, postTitles, postText, postId, ...rest } = posts[0];
       const list = await dao.getListById(req.params.id);
-      const userToFrontFormat = { ...rest, posts, list };
+      const userToFrontFormat = { ...rest, publicaciones, list, user };
+      console.log(userToFrontFormat.user[0], "esto es user");
       return res.status(200).send(userToFrontFormat);
     }
   } catch (e) {
@@ -190,22 +201,22 @@ controller.followUser = async (req, res) => {
 
 controller.countFollows = async (req, res) => {
   try {
-    const followers = await dao.countFollowers(req.params.id)
+    const followers = await dao.countFollowers(req.params.id);
 
-    const following = await dao.countFollowing(req.params.id)
+    const following = await dao.countFollowing(req.params.id);
 
     const userStats = {
       followers: followers,
-      following: following
-    }
+      following: following,
+    };
 
     if (userStats) {
-      console.log("Error when trying to fetch data")
+      console.log("Error when trying to fetch data");
     }
 
-    return res.send(userStats)
+    return res.send(userStats);
   } catch (e) {
-    console.log(e.message)
+    console.log(e.message);
   }
-}
+};
 export default controller;

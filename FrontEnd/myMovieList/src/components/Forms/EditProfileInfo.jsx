@@ -20,7 +20,6 @@ export default function RegisterForm() {
       if (response.status === 400) {
         alert("Error al recibir el body");
       } else if (response.status === 200) {
-        navigate("/login");
         alert(`Usuario ${values.name} registrado correctamente`);
         console.log(values);
       } else if (response.status === 409) {

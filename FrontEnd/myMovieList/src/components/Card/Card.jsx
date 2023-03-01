@@ -13,9 +13,6 @@ export default function Card({
   title,
   starFill,
   cardImgClassName,
-  modalTitle,
-  modalImage,
-  modalText,
 }) {
   return (
     <div className="cardContainer">

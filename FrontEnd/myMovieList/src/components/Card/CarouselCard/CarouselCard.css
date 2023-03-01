@@ -1,0 +1,91 @@
+.carouselCardContainer {
+    display: flex;
+   justify-content: center;
+    width: 80%;
+    margin-left: 32px;
+    border-radius: 8px;
+    background-color: var(--black);
+    margin-bottom: 16px;
+  }
+
+  .carouselCardContent {
+    width: 100%;
+  }
+  
+  .carouselCardTitle a {
+    color: var(--white);
+  }
+
+  .carouselCardImageMovie {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .carouselCardImageMovie img {
+    width: 100%;
+    border-radius: 8px;
+    height: 270px;
+  }
+  
+  .carouselCardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .carouselCardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px;
+  }
+  
+  .carouselCardTitle, .carouselCardDescription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carouselCardRating, .carouselCardRatingLogo {
+    padding: 4px;
+  }
+
+  
+  @media (max-width: 768px) {
+    .carouselCardContainer {
+      width: 100%;
+      margin-left: 0;
+    }
+    
+    .carouselCardImage img, .carouselCardImageMovie img {
+      height: auto;
+    }
+    
+    .carouselCardContent {
+      padding: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carouselCardContainer {
+      flex-direction: column;
+      margin-left: 0;
+    }
+    
+    .carouselCardImage img, .carouselCardImageMovie img {
+      height: auto;
+    }
+    
+    .carouselCardFooter {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px;
+    }
+    
+    .carouselCardRating, .carouselCardRatingLogo {
+      margin-bottom: 8px;
+    }
+  }
+  

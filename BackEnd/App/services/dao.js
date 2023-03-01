@@ -36,6 +36,8 @@ dao.removeShow = async (show, id) => await listQueries.removeShow(show, id)
 
 dao.followUserById = async (user, id) => await userQueries.followUserById(user, id)
 
+dao.getPostById = async (id) => await userQueries.getPostById(id)
+
 dao.deletePostById = async (id) => await publicationQueries.deletePostById(id)
 
 dao.countFollowers = async (id) => await userQueries.countFollowers(id)

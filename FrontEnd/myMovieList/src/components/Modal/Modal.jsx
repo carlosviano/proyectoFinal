@@ -1,5 +1,4 @@
 import { EyeClosedIcon } from "@primer/octicons-react";
-import CardFeed from "../Card/CardFeed";
 import "./Modal.css";
 
 export default function Modal({ title, image, text, username, date, onClick }) {

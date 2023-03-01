@@ -165,8 +165,13 @@ export default function ListCard({
               </div>
             </div>
           </div>
-          <div className="listCardRemove" onClick={() => toggleRemover()}>
-            {removeIcon}
+          <div className="listCardRemove">
+            <div
+              className="listCardRemoverIcon"
+              onClick={() => toggleRemover()}
+            >
+              {removeIcon}
+            </div>
           </div>
         </div>
       ) : (

@@ -1,6 +1,5 @@
 import "./Feed.css";
-import CardFeed from "../../components/Card/CardFeed";
-import image from "./images/onePiece.jpg";
+import CardFeed from "../../components/Card/CardFeed/CardFeed";
 import { ArrowLeftIcon, ImageIcon, TrashIcon } from "@primer/octicons-react";
 import AddPostForm from "../../components/Forms/AddPostForm";
 import { useEffect, useState } from "react";
@@ -46,13 +45,11 @@ export default function Feed() {
       if (response.status === 200) {
         const usuario = await response.json();
         setUser(usuario);
-        console.log("Esto es la response.json", usuario);
       } else {
         console.log("There was an error loading userData");
       }
     }
     getUser();
-    console.log(user.username);
   }, []);
 
   async function RemoveShow(e, id) {
@@ -79,7 +76,9 @@ export default function Feed() {
           <div className="feedAddPostHeader">
             <div className="feedAddPostHeaderImg">
               <img
-                src={` http://localhost:3000/${user.profilePicture}`}
+                src={` http://localhost:3000/${user?.user?.map(
+                  (item) => item.profilePicture
+                )}`}
                 alt="user-profile-picture"
               />
             </div>

@@ -1,14 +1,14 @@
 import { ArrowLeftIcon, GearIcon } from "@primer/octicons-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Card from "../../components/Card/Card";
+import ProfileCard from "../../components/Card/ProfileCard/ProfileCard";
 import ListCard from "../../components/Card/ListCard";
 import Label from "../../components/Label/Label";
 import { useLoginContext } from "../../contexts/LoginModeContext";
 import "./UserProfile.css";
 
 export default function UserProfile() {
-  const [user, setUser] = useState([]);
+  const [userData, setUserData] = useState([]);
   const { authorization } = useLoginContext();
   const [post, setPost] = useState(true);
   const [changeList, setChangeList] = useState(false);
@@ -16,17 +16,16 @@ export default function UserProfile() {
   const [followsList, setFollowsList] = useState();
   const [userStats, setUserStats] = useState([]);
 
-  function togglePost() {
-    console.log(post);
-    if (post === true) {
-      setPost(false);
-    } else {
-      setPost(true);
-    }
+  function showList(e) {
+    e.preventDefault();
+    setPost(false);
   }
 
+  function showPosts(e) {
+    e.preventDefault();
+    setPost(true);
+  }
   useEffect(() => {
-    console.log(id, "esto es id");
     async function getUser() {
       const response = await fetch(`http://localhost:3000/user/get/${id}`, {
         method: "GET",
@@ -34,14 +33,13 @@ export default function UserProfile() {
       });
       if (response.status === 200) {
         const usuario = await response.json();
-        setUser(usuario);
-        console.log("Esto es la response.json", usuario);
+        setUserData(usuario);
+        console.log(usuario, "esta es la info de usuario");
       } else {
         console.log("There was an error loading userData");
       }
     }
     getUser();
-    console.log(user.username);
   }, [changeList]);
 
   useEffect(() => {
@@ -55,7 +53,6 @@ export default function UserProfile() {
       );
       if (response.status === 200) {
         const following = await response.json();
-        console.log(following[0].following);
         setFollowsList(following[0].following);
       } else {
         alert("Error when fetching follows");
@@ -111,7 +108,6 @@ export default function UserProfile() {
       );
       if (response.status === 200) {
         const userData = await response.json();
-        console.log(userData, "esto es userData");
         setUserStats(userData);
       } else {
         alert("Error when fetching userData");
@@ -123,79 +119,90 @@ export default function UserProfile() {
 
   return (
     <div className="profileContainer">
-      {!user ? (
+      {!userData ? (
         <p>cargando...</p>
       ) : (
-        <div className="profileContent">
-          <div className="profileHeader">
-            <div className="profileHeaderLeftIcon"></div>
-            <div className="profileHeaderUserPicture">
-              <img src={` http://localhost:3000/${user?.profilePicture}`}></img>
+        userData?.user?.map((userItem) => (
+          <div className="profileContent" key={userItem.iduser}>
+            <div className="profileHeader">
+              <div className="profileHeaderLeftIcon"></div>
+              <div className="profileHeaderUserPicture">
+                <img
+                  src={` http://localhost:3000/${userItem?.profilePicture} `}
+                  alttext="profilePicture"
+                ></img>
+              </div>
+              <div className="profileHeaderRightIcon"></div>
             </div>
-            <div className="profileHeaderRightIcon"></div>
-          </div>
-          <div className="profileFirstBody">
-            <div className="profileFirstBodyName">
-              <h2>{user.username?.toUpperCase()}</h2>
-            </div>
-            <div className="profileFirstBodyStats">
-              {userStats &&
-                userStats?.following?.map((followingItem, index) => (
-                  <div className="profileFirstBodyFollowing" key={index}>
-                    <p>Following: {followingItem.following}</p>
-                  </div>
-                ))}
-              {userStats &&
-                userStats?.followers?.map((followerItem, index) => (
-                  <div className="profileFirstBodyFollowers" key={index}>
-                    <p>Followers: {followerItem.followers}</p>
-                  </div>
-                ))}
-            </div>
-            <div className="profileFirstBodyRegDate">
-              <h6>joined {user.reg_date}</h6>
-            </div>
-            <div className="profileFirstBodyFollow">
-              {followsList?.includes(user.iduser) ? (
-                <div className="followLabel">
-                  <Label
-                    onClick={(e) => UnfollowUser(e)}
-                    className={"labelContainerGreen"}
-                    title={"Following"}
-                  />
-                </div>
-              ) : (
-                <div className="followLabel" onClick={(e) => FollowUser(e)}>
-                  <Label className={"labelContainer"} title={"Follow"} />
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="profileMainBody">
-            <div className="profileMainBodyTitles">
-              <Link to={`/user/${id}`} onClick={() => togglePost()}>
-                <h5>POSTS</h5>
-              </Link>
-              <Link to={`/user/${id}`} onClick={() => togglePost()}>
-                <h5>LISTS</h5>
-              </Link>
-            </div>
-            <div className="profileMainBodyCards">
-              {!post
-                ? user.list.map((listItem, index) => (
-                    <ListCard
-                      altText={`post del usuario ${authorization.iduser} de la serie ${listItem.name}`}
-                      name={listItem.name}
-                      rating={listItem.rating}
-                      type={listItem.type}
-                      progress={listItem.state}
-                      key={index}
-                      changeList={changeList}
-                      setChangeList={setChangeList}
+            <div className="profileFirstBody">
+              <div className="profileFirstBodyName">
+                <h2>{userItem.username?.toUpperCase()}</h2>
+              </div>
+              <div className="profileFirstBodyStats">
+                {userStats &&
+                  userStats?.following?.map((followingItem, index) => (
+                    <div className="profileFirstBodyFollowing" key={index}>
+                      <p>Following: {followingItem.following}</p>
+                    </div>
+                  ))}
+                {userStats &&
+                  userStats?.followers?.map((followerItem, index) => (
+                    <div className="profileFirstBodyFollowers" key={index}>
+                      <p>Followers: {followerItem.followers}</p>
+                    </div>
+                  ))}
+              </div>
+              <div className="profileFirstBodyRegDate">
+                <h6>joined {userItem.reg_date}</h6>
+              </div>
+              <div className="profileFirstBodyFollow">
+                {followsList?.includes(userItem.iduser) ? (
+                  <div className="followLabel">
+                    <Label
+                      onClick={(e) => UnfollowUser(e)}
+                      className={"labelContainerGreen"}
+                      title={"Following"}
                     />
-                  ))
-                : user.posts?.map((post, index) => (
-                    <Card
+                  </div>
+                ) : (
+                  <div className="followLabel" onClick={(e) => FollowUser(e)}>
+                    <Label className={"labelContainer"} title={"Follow"} />
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="profileMainBody">
+              <div className="profileMainBodyTitles">
+                <Link to={`/user/${id}`} onClick={(e) => showPosts(e)}>
+                  <h5>POSTS</h5>
+                </Link>
+                <Link to={`/user/${id}`} onClick={(e) => showList(e)}>
+                  <h5>LISTS</h5>
+                </Link>
+              </div>
+              <div className="profileMainBodyCards">
+                {post === false ? (
+                  userData.list.length < 1 ? (
+                    <p>{userItem.username} has no items in his list yet</p>
+                  ) : (
+                    userData?.list?.map((listItem, index) => (
+                      <ListCard
+                        altText={`post del usuario ${authorization.iduser} de la serie ${listItem.name}`}
+                        name={listItem.name}
+                        rating={listItem.rating}
+                        type={listItem.type}
+                        progress={listItem.state}
+                        key={index}
+                        changeList={changeList}
+                        setChangeList={setChangeList}
+                      />
+                    ))
+                  )
+                ) : !userData.publicaciones ? (
+                  <p>{userItem.username} has not made any posts yet</p>
+                ) : (
+                  userData?.publicaciones?.map((post, index) => (
+                    <ProfileCard
                       to={`/user/${id}`}
                       cardTitle={post.post}
                       image={` http://localhost:3000/${post.image}`}
@@ -207,10 +214,12 @@ export default function UserProfile() {
                       modalText={post.text}
                       modalTitle={post.post}
                     />
-                  ))}
+                  ))
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ))
       )}
     </div>
   );

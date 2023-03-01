@@ -23,6 +23,8 @@
 
 .listCardRemove {
     padding-left: 16px;
+    display: flex;
+    align-items: center;
 }
 
 .listCardRightGroup {
@@ -71,7 +73,7 @@ width: 100%;
   padding: 8px;
 }
 
-.removerQuestionConfirm:hover, .removerQuestionReject:hover, .listCardRemove:hover, .selectProgressConfirm:hover,.listCardIcon:hover,.selectRatingConfirm:hover{
+.removerQuestionConfirm:hover, .removerQuestionReject:hover, .listCardRemoverIcon:hover, .selectProgressConfirm:hover,.listCardIcon:hover,.selectRatingConfirm:hover{
   cursor: pointer;
 }
 
