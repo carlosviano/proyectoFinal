@@ -97,13 +97,13 @@ export default function Profile() {
                 {userStats &&
                   userStats?.following?.map((followingItem, index) => (
                     <div className="profileFirstBodyFollowing" key={index}>
-                      <p>Following: {followingItem.following}</p>
+                      <p>Following: {followingItem.following - 1}</p>
                     </div>
                   ))}
                 {userStats &&
                   userStats?.followers?.map((followerItem, index) => (
                     <div className="profileFirstBodyFollowers" key={index}>
-                      <p>Followers: {followerItem.followers}</p>
+                      <p>Followers: {followerItem.followers - 1}</p>
                     </div>
                   ))}
               </div>

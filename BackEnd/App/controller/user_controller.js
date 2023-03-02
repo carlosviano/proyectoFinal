@@ -10,8 +10,6 @@ const controller = {};
 controller.addUser = async (req, res) => {
   const { email, password, name, surname, username } = req.body;
 
-  console.log(req.body);
-
   if (!email || !password || !name || !surname || !username)
     return res.status(400).send("Error al recibir el body");
 
@@ -21,8 +19,36 @@ controller.addUser = async (req, res) => {
     if (user.length > 0) return res.status(409).send("usuario ya registrado");
 
     const addUser = await dao.addUser(req.body);
-    if (addUser)
+
+    let getSelf = await dao.getUserByEmail(email);
+
+    [getSelf] = getSelf;
+
+    if (!getSelf)
+      return res
+        .status(404)
+        .send("No se ha podido obtener la informacion de usuario");
+
+    const followSelf = await dao.followSelf(getSelf.iduser);
+
+    if (addUser && followSelf)
       return res.send(`Usuario ${email} con id: ${addUser} registrado`);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+controller.addRecent = async (req, res) => {
+  const { idUser, searchedUser, idShow, img, name, rating } = req.body;
+
+  try {
+    if (idShow || searchedUser) {
+      const addRecent = await dao.addRecent(req.body);
+
+      if (addRecent) {
+        return res.send(`Usuario o Show agregado correctamente`);
+      }
+    }
   } catch (e) {
     console.log(e.message);
   }
@@ -219,4 +245,5 @@ controller.countFollows = async (req, res) => {
     console.log(e.message);
   }
 };
+
 export default controller;
