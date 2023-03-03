@@ -12,6 +12,15 @@
     justify-content: space-between;
 }
 
+.imageBannerContainer a {
+    height: 100%;
+    color: var(--white);
+}
+
+.imageBannerContainer a:hover {
+   color: var(--white);
+}
+
 .imageBannerHeader {
     display:flex;
     padding:16px;
@@ -21,6 +30,8 @@
     display: flex;
     padding: 16px;
     flex-direction: column;
+    height: 100%;
+    justify-content: center;
 }
 
 .imageBannerFooterLabel {

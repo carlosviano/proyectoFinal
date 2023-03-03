@@ -41,7 +41,6 @@ export default function TopRatedMovies() {
               starFill={"gold"}
               key={moviesListItem.id}
               cardImgClassName={"cardImageMovie"}
-              onClick={() => addToList}
             />
           ))
         )}

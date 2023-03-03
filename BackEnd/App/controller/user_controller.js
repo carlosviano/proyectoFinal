@@ -1,4 +1,4 @@
-import { jwtVerify, SignJWT } from "jose";
+import { SignJWT } from "jose";
 import { currentDir } from "../index.js";
 import md5 from "md5";
 import dao from "../services/dao.js";
@@ -38,21 +38,29 @@ controller.addUser = async (req, res) => {
   }
 };
 
-controller.addRecent = async (req, res) => {
-  const { idUser, searchedUser, idShow, img, name, rating } = req.body;
+controller.addRecentUser = async (req, res) => {
+  const { searchedUser } = req.body;
 
   try {
-    if (idShow || searchedUser) {
-      const addRecent = await dao.addRecent(req.body);
+    const addRecentUser = await dao.addRecentUser(searchedUser, req.params.id);
+    return res.send(addRecentUser);
 
-      if (addRecent) {
-        return res.send(`Usuario o Show agregado correctamente`);
-      }
-    }
   } catch (e) {
     console.log(e.message);
   }
 };
+
+controller.addRecentShow = async (req, res) => {
+  if (Object.entries(req.body).length === 0)
+    return res.sendStatus(400).send("Error al recibir el body");
+  try {
+    const addRecentShow = await dao.addRecentShow(req.body, req.params.id)
+    console.log(addRecentShow)
+    return res.send(`Recent show con id ${addRecentShow} agregado`);
+  } catch (e) {
+    console.log(e.message)
+  }
+}
 
 controller.loginUser = async (req, res) => {
   const { email, password } = req.body;
@@ -209,6 +217,30 @@ controller.unfollowUserById = async (req, res) => {
   }
 };
 
+controller.deleteUserHistory = async (req, res) => {
+  try {
+    const deleteHistory = await dao.deleteUserHistory(req.params.id)
+
+    if (deleteHistory) {
+      return res.send(`History for user ${deleteHistory} deleted successfully`)
+    }
+  } catch (e) {
+    console.log(e.message)
+  }
+}
+
+controller.deleteShowsHistory = async (req, res) => {
+  try {
+    const deleteHistory = await dao.deleteShowsHistory(req.params.id)
+
+    if (deleteHistory) {
+      return res.send(`History for user ${deleteHistory} deleted successfully`)
+    }
+  } catch (e) {
+    console.log(e.message)
+  }
+}
+
 controller.followUser = async (req, res) => {
   const { user } = req.body;
   console.log();
@@ -219,7 +251,7 @@ controller.followUser = async (req, res) => {
       console.log("Error when trying to follow user");
     }
 
-    return res.send(startToFollow);
+    return res.send("User followed");
   } catch (e) {
     console.log(e.message);
   }
@@ -245,5 +277,30 @@ controller.countFollows = async (req, res) => {
     console.log(e.message);
   }
 };
+
+controller.getRecentUsers = async (req, res) => {
+  try {
+    const recentUsers = await dao.getRecentUsers(req.params.id)
+
+    if (recentUsers) {
+      return res.send(recentUsers)
+    }
+  } catch (e) {
+    console.log(e.message)
+  }
+}
+
+controller.getRecentShows = async (req, res) => {
+  try {
+    const recentShows = await dao.getRecentShows(req.params.id)
+
+    if (recentShows) {
+      return res.send(recentShows)
+    }
+  } catch (e) {
+    console.log(e.message)
+  }
+}
+
 
 export default controller;

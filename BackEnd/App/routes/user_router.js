@@ -24,6 +24,16 @@ userRouter.post("/startFollow/:id", userController.followUser);
 
 userRouter.get("/countFollows/:id", userController.countFollows);
 
-userRouter.post("/addRecent", userController.addRecent);
+userRouter.post("/recent/user/:id", userController.addRecentUser);
+
+userRouter.post('/recent/show/:id', userController.addRecentShow)
+
+userRouter.get('/getRecentUser/:id', userController.getRecentUsers)
+
+userRouter.get('/getRecentShows/:id', userController.getRecentShows)
+
+userRouter.delete('/recentUsers/:id', userController.deleteUserHistory)
+
+userRouter.delete('/shows/:id', userController.deleteShowsHistory)
 
 export default userRouter;

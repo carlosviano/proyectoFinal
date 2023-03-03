@@ -17,9 +17,6 @@ controller.addPublication = async (req, res) => {
       return res.status(400).send("No se ha cargado ningun archivo");
     }
 
-    if (!req.query) {
-      return res.status(400).send("No se ha indicado el id del usuario");
-    }
     console.log(req.files, "files");
     const images = !req.files.length ? [req.files.file] : req.files.file;
     console.log(images, "images");

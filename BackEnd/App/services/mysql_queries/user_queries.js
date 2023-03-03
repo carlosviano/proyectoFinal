@@ -43,23 +43,46 @@ userQueries.addUser = async (userData) => {
   }
 };
 
-userQueries.addRecent = async (data) => {
+userQueries.addRecentUser = async (searchedUser, id) => {
   let conn = null;
   try {
     conn = await db.createConnection();
 
-    let recentObj = {
-      user: data.idUser,
-      searchedUser: data.searchedUser,
-      show: data.idShow,
-      image: data.img,
-      name: data.name,
-      rating: data.rating,
+    let userObj = {
+      user: id,
+      searcheduser: searchedUser,
     };
-    userObj = await utils.removeUndefinedKeys(userObj);
+
     return await db.query(
-      "INSERT into recent set ?",
-      recentObj,
+      "INSERT into recentuser set ?",
+      [userObj],
+      "insert",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+userQueries.addRecentShow = async (showData, id) => {
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+
+    let showObj = {
+      image: showData.img,
+      showid: showData.idShow,
+      name: showData.name,
+      title: showData.title,
+      rating: showData.rating,
+      user: id,
+    };
+    showObj = await utils.removeUndefinedKeys(showObj);
+    return await db.query(
+      "INSERT INTO recentshows SET ?",
+      showObj,
       "insert",
       conn
     );
@@ -297,6 +320,7 @@ userQueries.countFollowers = async (id) => {
     conn & (await conn.end);
   }
 };
+
 userQueries.countFollowing = async (id) => {
   let conn = null;
   try {
@@ -314,4 +338,64 @@ userQueries.countFollowing = async (id) => {
     conn & (await conn.end);
   }
 };
+
+userQueries.getRecentUsers = async (id) => {
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+
+    return await db.query(
+      "SELECT distinct user.* from user JOIN recentuser on user.iduser = recentuser.searcheduser where recentuser.user = ?",
+      id,
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn & (await conn.end);
+  }
+};
+
+userQueries.getRecentShows = async (id) => {
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+
+    return await db.query('SELECT DISTINCT image,user, showid, name, title, rating FROM recentshows where user = ?', id, "select", conn);
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn & (await conn.end);
+  }
+};
+
+userQueries.deleteUserHistory = async (id) => {
+  let conn = null;
+  try {
+    conn = await db.createConnection()
+
+    return await db.query('DELETE FROM recentuser where user = ?', id, "delete", conn)
+
+  } catch (e) {
+    throw new Error(e)
+  } finally {
+    conn & await conn.end
+  }
+}
+
+userQueries.deleteShowsHistory = async (id) => {
+  let conn = null;
+  try {
+    conn = await db.createConnection()
+
+    return await db.query('DELETE FROM recentshows where user = ?', id, "delete", conn)
+
+  } catch (e) {
+    throw new Error(e)
+  } finally {
+    conn & await conn.end
+  }
+}
+
 export default userQueries;

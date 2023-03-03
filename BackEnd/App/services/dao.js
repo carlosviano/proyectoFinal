@@ -8,42 +8,33 @@ dao.getUserByEmail = async (email) => await userQueries.getUserByEmail(email);
 
 dao.addUser = async (userData) => await userQueries.addUser(userData);
 
-dao.updateImage = async (id, imageData) =>
-  await userQueries.updateImage(id, imageData);
+dao.updateImage = async (id, imageData) => await userQueries.updateImage(id, imageData);
 
 dao.getUserById = async (id) => await userQueries.getUserById(id);
 
-dao.addPublication = async (id, publicationData) =>
-  await publicationQueries.addPublication(id, publicationData);
+dao.addPublication = async (id, publicationData) => await publicationQueries.addPublication(id, publicationData);
 
 dao.getListById = async (id) => await userQueries.getListById(id);
 
 dao.getFeedById = async (id) => await userQueries.getFeedById(id);
 
-dao.addToList = async (id, itemData) =>
-  await listQueries.addToList(id, itemData);
+dao.addToList = async (id, itemData) => await listQueries.addToList(id, itemData);
 
-dao.getShowByName = async (id, showName) =>
-  await listQueries.getShowByName(id, showName);
+dao.getShowByName = async (id, showName) => await listQueries.getShowByName(id, showName);
 
-dao.updateUser = async (id, userData) =>
-  await userQueries.updateUser(id, userData);
+dao.updateUser = async (id, userData) => await userQueries.updateUser(id, userData);
 
-dao.updateList = async (id, listData) =>
-  await listQueries.updateList(id, listData);
+dao.updateList = async (id, listData) => await listQueries.updateList(id, listData);
 
-dao.getUserByUsername = async (username) =>
-  await userQueries.getUserByUsername(username);
+dao.getUserByUsername = async (username) => await userQueries.getUserByUsername(username);
 
 dao.getFollowsById = async (id) => await userQueries.getFollowsById(id);
 
-dao.unfollowUserById = async (user, id) =>
-  await userQueries.unfollowUserById(user, id);
+dao.unfollowUserById = async (user, id) => await userQueries.unfollowUserById(user, id);
 
 dao.removeShow = async (show, id) => await listQueries.removeShow(show, id);
 
-dao.followUserById = async (user, id) =>
-  await userQueries.followUserById(user, id);
+dao.followUserById = async (user, id) => await userQueries.followUserById(user, id);
 
 dao.getPostById = async (id) => await userQueries.getPostById(id);
 
@@ -55,6 +46,16 @@ dao.countFollowing = async (id) => await userQueries.countFollowing(id);
 
 dao.followSelf = async (id) => await userQueries.followSelf(id);
 
-dao.addRecent = async (data) => await userQueries.addRecent(data);
+dao.addRecentUser = async (searchedUser, id) => await userQueries.addRecentUser(searchedUser, id);
+
+dao.addRecentShow = async (showData, id) => await userQueries.addRecentShow(showData, id);
+
+dao.getRecentUsers = async (id) => await userQueries.getRecentUsers(id)
+
+dao.getRecentShows = async (id) => await userQueries.getRecentShows(id)
+
+dao.deleteUserHistory = async (id) => await userQueries.deleteUserHistory(id)
+
+dao.deleteShowsHistory = async (id) => await userQueries.deleteShowsHistory(id)
 
 export default dao;

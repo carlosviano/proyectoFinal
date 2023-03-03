@@ -2,7 +2,6 @@ import { StarFillIcon } from "@primer/octicons-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Label from "../Label/Label";
-import Modal from "../Modal/Modal";
 import "./Card.css";
 
 export default function Card({
@@ -13,9 +12,10 @@ export default function Card({
   title,
   starFill,
   cardImgClassName,
+  onClick,
 }) {
   return (
-    <div className="cardContainer">
+    <div className="cardContainer" onClick={onClick}>
       <div className="cardContent">
         <div className={cardImgClassName}>
           <Link to={to}>
