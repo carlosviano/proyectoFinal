@@ -162,7 +162,7 @@ export default function Browse() {
         validationSchema={BrowseFormSchema}
         onSubmit={Browse}
       >
-        {({}) => (
+        {() => (
           <>
             <Form className="formRegister">
               <div className="inputContainer">
@@ -222,8 +222,8 @@ export default function Browse() {
           </>
         )}
       </Formik>
-      {!usersFound & !search && (
-        <div className="recentHistoryContainer">
+      {!usersFound && !search && (
+        <div className="">
           <div className="recentHistoryContent">
             {recentUsers?.length > 0 ? (
               <div className="recentUserHistoryContainer">
@@ -275,9 +275,7 @@ export default function Browse() {
                   </div>
                 </div>
                 <div className="recentHistoryShowsCard">
-                  {!recentShows ? (
-                    <p></p>
-                  ) : (
+                  {recentShows &&
                     recentShows.map((item) => (
                       <Card
                         onClick={() => addRecentShow(item)}
@@ -297,8 +295,7 @@ export default function Browse() {
                         key={item.showid}
                         cardImgClassName={"cardImageMovie"}
                       />
-                    ))
-                  )}
+                    ))}
                 </div>
               </div>
             ) : (

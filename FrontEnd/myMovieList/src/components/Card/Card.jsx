@@ -19,7 +19,7 @@ export default function Card({
       <div className="cardContent">
         <div className={cardImgClassName}>
           <Link to={to}>
-            <img src={image} alt={"image"}></img>
+            <img src={image} alt={"image"} />
           </Link>
         </div>
         <div className="cardFooter">
