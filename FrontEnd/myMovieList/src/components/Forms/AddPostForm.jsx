@@ -84,8 +84,8 @@ export default function AddPostForm({ setChangeFeed, changeFeed }) {
               <img src={preview} alt="" />
             </div>
             <ArrowButton
-              className={"mediumBtnGray"}
-              arrowFill="var(--white)"
+              className={"mediumBtnGreen"}
+              arrowFill="var(--black)"
               arrowSize={16}
               disabled={isSubmitting}
             />

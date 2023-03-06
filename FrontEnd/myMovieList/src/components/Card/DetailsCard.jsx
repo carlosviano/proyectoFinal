@@ -10,13 +10,14 @@ export default function DetailsCard({
   rating,
   description,
   onClick,
+  to,
 }) {
   return (
     <div className="mainDetailsCard">
       <img src={image}></img>
       <div className="detailsContainer">
         <div className="headerDetailsContent">
-          <Link to={"../"}>
+          <Link to={to}>
             <ArrowLeftIcon size={24} />
           </Link>
         </div>

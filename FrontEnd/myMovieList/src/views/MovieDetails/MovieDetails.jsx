@@ -82,6 +82,7 @@ export default function MovieDetails() {
             description={showItem.overview.substring(0, 200) + "..."}
             key={index}
             onClick={() => addToList()}
+            to={"/movies"}
           />
         ))
       )}

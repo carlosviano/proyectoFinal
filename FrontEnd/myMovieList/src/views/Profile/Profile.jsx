@@ -28,6 +28,23 @@ export default function Profile() {
     e.preventDefault();
     setPost(true);
   }
+
+  async function RemoveShow(e, id) {
+    e.preventDefault();
+    const respuesta = await fetch(
+      `http://localhost:3000/publication/feed/delete/${id}`,
+      {
+        method: "DELETE",
+        headers: { "Content-type": "application/json" },
+      }
+    );
+    if (respuesta.status === 200) {
+      setChangeList(!changeList);
+    } else {
+      alert("Couldnt delete show");
+    }
+  }
+
   useEffect(() => {
     async function getUser() {
       const response = await fetch(
@@ -144,18 +161,20 @@ export default function Profile() {
                 ) : !user.publicaciones ? (
                   <p>You didnt publish any posts yet</p>
                 ) : (
-                  user?.publicaciones?.map((post, index) => (
+                  user?.publicaciones?.map((post) => (
                     <ProfileCard
                       to={`/profile`}
                       cardTitle={post.post}
                       image={` http://localhost:3000/${post.image}`}
                       title={"View details"}
                       starFill={"var(--black)"}
-                      key={index}
+                      key={post.idpost}
                       cardImgClassName={"cardImage"}
                       modalImage={` http://localhost:3000/${post.image}`}
                       modalText={post.text}
                       modalTitle={post.post}
+                      removeCard={<TrashIcon size={16} fill={"red"} />}
+                      onClick={(e) => RemoveShow(e, post.idpost)}
                     />
                   ))
                 )}
