@@ -16,35 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `post`
+-- Table structure for table `recentshows`
 --
 
-DROP TABLE IF EXISTS `post`;
+DROP TABLE IF EXISTS `recentshows`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `post` (
-  `idpost` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `recentshows` (
+  `idrecentshows` int NOT NULL AUTO_INCREMENT,
   `user` int NOT NULL,
-  `text` varchar(400) NOT NULL,
-  `img` varchar(128) NOT NULL,
-  `reg_date` varchar(45) DEFAULT NULL,
-  `title` varchar(30) NOT NULL,
+  `showid` int NOT NULL,
+  `name` varchar(256) DEFAULT NULL,
+  `title` varchar(256) DEFAULT NULL,
   `rating` int DEFAULT NULL,
-  PRIMARY KEY (`idpost`),
-  UNIQUE KEY `idpost_UNIQUE` (`idpost`),
-  KEY `user_fk_idx` (`user`),
-  CONSTRAINT `user_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `image` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`idrecentshows`),
+  UNIQUE KEY `idrecentShows_UNIQUE` (`idrecentshows`),
+  KEY `usershow_FK_idx` (`user`),
+  CONSTRAINT `usershow_FK` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `post`
+-- Dumping data for table `recentshows`
 --
 
-LOCK TABLES `post` WRITE;
-/*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (15,2,'post usuario 2','images/products/ofnwe.jpg',NULL,'Post user 2',9),(16,3,'post user 3','images/products/ofnwe.jpg',NULL,'Post user 3',9),(17,6,'post user 6','images/products/ofnwe.jpg',NULL,'Post user 6',9),(18,5,'post user 5','images/products/ofnwe.jpg',NULL,'Post user 5',9),(34,1,'sasas','images/products/luffy.png','February 26th 2023, 2:56:37 pm','dsasdasa',NULL),(41,1,'ds[d[lk,asd[oask','images/products/luffyPP.png','February 27th 2023, 1:26:23 pm','este es mi segundo feed',NULL);
-/*!40000 ALTER TABLE `post` ENABLE KEYS */;
+LOCK TABLES `recentshows` WRITE;
+/*!40000 ALTER TABLE `recentshows` DISABLE KEYS */;
+INSERT INTO `recentshows` VALUES (16,1,42444,'Saint Seiya',NULL,8,'/88Rd5sdhAVJuG9H7eTA4nqddz4t.jpg');
+/*!40000 ALTER TABLE `recentshows` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-27 14:58:26
+-- Dump completed on 2023-03-07 14:52:18

@@ -16,30 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `follows`
+-- Table structure for table `list`
 --
 
-DROP TABLE IF EXISTS `follows`;
+DROP TABLE IF EXISTS `list`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `follows` (
-  `idfollows` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `list` (
+  `idlist` int NOT NULL AUTO_INCREMENT,
   `user` int NOT NULL,
-  `following` int NOT NULL,
-  PRIMARY KEY (`idfollows`),
-  KEY `userfollow_fk_idx` (`user`,`following`),
-  CONSTRAINT `userfollow_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `state` enum('currently watching','watched','plan to watch','dropped') NOT NULL DEFAULT 'currently watching',
+  `reg_date` varchar(128) DEFAULT NULL,
+  `name` varchar(256) DEFAULT NULL,
+  `rating` int DEFAULT NULL,
+  `type` enum('tv show','movie') NOT NULL,
+  PRIMARY KEY (`idlist`),
+  UNIQUE KEY `idList_UNIQUE` (`idlist`),
+  KEY `listuser_fk_idx` (`user`),
+  CONSTRAINT `listuser_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `follows`
+-- Dumping data for table `list`
 --
 
-LOCK TABLES `follows` WRITE;
-/*!40000 ALTER TABLE `follows` DISABLE KEYS */;
-INSERT INTO `follows` VALUES (6,1,1),(22,1,2),(11,1,4),(26,1,5),(4,1,6),(13,1,28),(14,1,29),(2,2,1),(18,5,1);
-/*!40000 ALTER TABLE `follows` ENABLE KEYS */;
+LOCK TABLES `list` WRITE;
+/*!40000 ALTER TABLE `list` DISABLE KEYS */;
+INSERT INTO `list` VALUES (25,5,'currently watching',NULL,'One piece',10,'tv show'),(39,10,'watched','Feb 28th 23','Chainsaw Man',9,'tv show'),(40,10,'currently watching','Feb 28th 23','Josee, the Tiger and the Fish',NULL,'movie'),(41,10,'currently watching','Feb 28th 23','Interstellar',NULL,'movie'),(42,10,'watched','Feb 28th 23','The Last Days of the USSR',10,'movie'),(43,1,'watched','Mar 1st 23','Normal People',10,'tv show'),(44,1,'watched','Mar 2nd 23','One Piece',8,'tv show');
+/*!40000 ALTER TABLE `list` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-27 14:58:26
+-- Dump completed on 2023-03-07 14:52:18

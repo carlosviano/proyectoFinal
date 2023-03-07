@@ -16,35 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `list`
+-- Table structure for table `recentuser`
 --
 
-DROP TABLE IF EXISTS `list`;
+DROP TABLE IF EXISTS `recentuser`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `list` (
-  `idlist` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `recentuser` (
+  `idrecentuser` int NOT NULL AUTO_INCREMENT,
   `user` int NOT NULL,
-  `state` enum('currently watching','watched','plan to watch','dropped') NOT NULL DEFAULT 'currently watching',
-  `reg_date` varchar(128) DEFAULT NULL,
-  `name` varchar(256) DEFAULT NULL,
-  `rating` int DEFAULT NULL,
-  `type` enum('tv show','movie') NOT NULL,
-  PRIMARY KEY (`idlist`),
-  UNIQUE KEY `idList_UNIQUE` (`idlist`),
-  KEY `listuser_fk_idx` (`user`),
-  CONSTRAINT `listuser_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `searcheduser` int NOT NULL,
+  PRIMARY KEY (`idrecentuser`),
+  UNIQUE KEY `idrecentUser_UNIQUE` (`idrecentuser`),
+  KEY `userRecent_fk_idx` (`user`),
+  KEY `searchedUser_fk_idx` (`searcheduser`),
+  CONSTRAINT `searchedUser_fk` FOREIGN KEY (`searcheduser`) REFERENCES `user` (`iduser`),
+  CONSTRAINT `userRecent_fk` FOREIGN KEY (`user`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `list`
+-- Dumping data for table `recentuser`
 --
 
-LOCK TABLES `list` WRITE;
-/*!40000 ALTER TABLE `list` DISABLE KEYS */;
-INSERT INTO `list` VALUES (25,5,'currently watching',NULL,'One piece',10,'tv show'),(26,1,'watched','Feb 25th 23','One Piece',9,'tv show'),(27,1,'currently watching','Feb 26th 23','A Silent Voice: The Movie',NULL,'movie'),(29,1,'currently watching','Feb 26th 23','The Lord of the Rings: The Fellowship of the Ring',10,'movie'),(32,1,'currently watching','Feb 26th 23','Hitoribocchi no Marumaruseikatsu',NULL,'tv show'),(37,1,'currently watching','Feb 26th 23','The D\'Amelio Show',NULL,'tv show');
-/*!40000 ALTER TABLE `list` ENABLE KEYS */;
+LOCK TABLES `recentuser` WRITE;
+/*!40000 ALTER TABLE `recentuser` DISABLE KEYS */;
+INSERT INTO `recentuser` VALUES (43,1,1),(44,14,1),(45,1,1),(46,1,5),(47,1,5);
+/*!40000 ALTER TABLE `recentuser` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-27 14:58:27
+-- Dump completed on 2023-03-07 14:52:18
