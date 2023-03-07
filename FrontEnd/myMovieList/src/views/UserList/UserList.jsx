@@ -44,6 +44,13 @@ export default function UserList() {
           </div>
         )}
       </div>
+      <ListCard
+        id={authorization.iduser}
+        name={<p>Name</p>}
+        rating={<p>Rating</p>}
+        type={<p>Type</p>}
+        progress={<p>Progress</p>}
+      />
       {user.list?.map((listItem, index) => (
         <ListCard
           id={authorization.iduser}

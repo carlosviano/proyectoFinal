@@ -42,10 +42,6 @@ export default function DetailsCard({
           </div>
         </div>
         <div className="mainDetailsFooter">
-          <div className="mainDetailsFooterVideo">
-            <PlayIcon size={64} />
-            <h3>Watch Trailer</h3>
-          </div>
           <div className="mainDetailsFooterLabel">
             <label htmlFor="button">
               <h3>Add to list</h3>

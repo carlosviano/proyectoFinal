@@ -42,14 +42,15 @@ export default function Home() {
       >
         <BannerNoImage
           bannerLabel="Latest Posts"
-          bannerTitle={"TOP"}
-          greenText={"100"}
-          userName={"Adrian Parrado Parry"}
+          bannerTitle={"ONE"}
+          greenText={"PIECE"}
+          userName={"WildRisk"}
           description={
-            " Torrente 3 fue toxico robotico asombroso manejo del lexico hoy el rap en espanol no solo se hace en nuevo Mexico"
+            "This is an unique story, incredibly original and with a plot that can be understood by everyone. "
           }
-          bannerTitle2={"FILMS IN"}
-          bannerTitle3={". THE BEST."}
+          bannerTitle2={"A"}
+          blueText={"WORK"}
+          bannerTitle3={"OF ART"}
         />
         <ImageBanner
           to={"/moviedetails"}

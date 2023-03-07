@@ -108,6 +108,7 @@ export default function Feed() {
                     key={item.idpost}
                     removeIcon={<TrashIcon size={16} fill={"red"} />}
                     onClick={(e) => RemoveShow(e, item.idpost)}
+                    to={`/profile`}
                   />
                 ) : (
                   <CardFeed
@@ -117,6 +118,7 @@ export default function Feed() {
                     username={item.username}
                     date={item.reg_date?.slice(0, -13)}
                     key={item.idpost}
+                    to={`/user/${item.user}`}
                   />
                 )
               )

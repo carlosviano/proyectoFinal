@@ -1,5 +1,6 @@
 import { TrashIcon } from "@primer/octicons-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./CardFeed.css";
 
 export default function CardFeed({
@@ -11,6 +12,7 @@ export default function CardFeed({
   date,
   removeIcon,
   onClick,
+  to,
 }) {
   const [removeMessage, setRemoveMessage] = useState(false);
 
@@ -44,7 +46,9 @@ export default function CardFeed({
               </div>
               <div className="mainFeedCardUserInfo">
                 <div className="mainFeedCardUsername">
-                  <h5>{username}</h5>
+                  <Link to={to}>
+                    <h5>{username}</h5>
+                  </Link>
                 </div>
                 <div className="mainFeedCardDate">
                   <h5>{date}</h5>

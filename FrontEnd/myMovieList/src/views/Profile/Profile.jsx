@@ -92,9 +92,7 @@ export default function Profile() {
         user?.user?.map((userItem) => (
           <div className="profileContent" key={userItem.iduser}>
             <div className="profileHeader">
-              <div className="profileHeaderLeftIcon">
-                <ArrowLeftIcon size={24} />
-              </div>
+              <div className="profileHeaderLeftIcon"></div>
               <div className="profileHeaderUserPicture">
                 <img
                   src={` http://localhost:3000/${userItem.profilePicture}`}

@@ -11,6 +11,7 @@ export default function BannerNoImage({
   description,
   bannerTitle2,
   bannerTitle3,
+  blueText,
 }) {
   return (
     <div className="bannerNoImage">
@@ -33,7 +34,7 @@ export default function BannerNoImage({
           <h1>{bannerTitle2}</h1>
         </div>
         <div className="bannerNoImageBodySecond">
-          <h1 className="blueText">2022</h1>
+          <h1 className="blueText">{blueText}</h1>
           <h1>{bannerTitle3}</h1>
         </div>
         <div className="bannerNoImageNameViews">
