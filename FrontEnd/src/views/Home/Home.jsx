@@ -1,6 +1,3 @@
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/navigation";
 import "./Home.css";
 import img from "../../components/Banners/SmallBanner/Images/QueensGambitHorizontal.jpg";
 import img2 from "../../components/Banners/SmallBanner/Images/pulpFiction.jpg";
@@ -8,10 +5,6 @@ import { useEffect,useState } from "react";
 import BannerNoImage from "../../components/Banners/BannerNoImage/BannerNoImage";
 import ImageBanner from "../../components/Banners/ImageBanner/ImageBanner";
 import SmallBanner from "../../components/Banners/SmallBanner/SmallBanner";
-// import CarouselCard from "../../components/Card/CarouselCard/CarouselCard";
-
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function Home() {
   const [carouselShows, setCarouselShows] = useState([]);
@@ -62,44 +55,6 @@ export default function Home() {
       </div>
       <div className="bannerContainerSecondary">
         <div className="bannerContainerSecondaryLeft">
-          <div className="bannerContainerSecondaryLeftTitle"></div>
-          <div className="bannerSecondaryLeftSlider">
-            {/* <Swiper
-              spaceBetween={30}
-              centeredSlides={true}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="mySwiper"
-            >
-              {carouselShows &&
-                carouselShows.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <CarouselCard
-                      image={
-                        "https://www.themoviedb.org/t/p/original/" +
-                        item.backdrop_path
-                      }
-                      cardTitle={item.title ? item.title : item.name}
-                      movieRating={item.vote_average}
-                      to={
-                        item.title ? `/movies/${item.id}` : `/series/${item.id}`
-                      }
-                      title={"View Details"}
-                      starFill={"gold"}
-                      key={item.id}
-                      cardImgClassName={"carouselCardImageMovie"}
-                    />
-                  </SwiperSlide>
-                ))}
-            </Swiper> */}
-          </div>
         </div>
         <div className="bannerContainerSecondaryRight">
           <SmallBanner
