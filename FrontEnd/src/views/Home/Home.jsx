@@ -7,21 +7,6 @@ import ImageBanner from "../../components/Banners/ImageBanner/ImageBanner";
 import SmallBanner from "../../components/Banners/SmallBanner/SmallBanner";
 
 export default function Home() {
-  const [carouselShows, setCarouselShows] = useState([]);
-  useEffect(() => {
-    async function getCarouselShows() {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/list/8242996?api_key=66674c972aa10f212a4d8ea3c11ec886&language=en-US"
-      );
-      if (response.status === 200) {
-        const shows = await response.json();
-        setCarouselShows(shows.items);
-      } else {
-        alert("There was an error when trying to display the shows");
-      }
-    }
-    getCarouselShows();
-  }, []);
   return (
     <>
       <div
