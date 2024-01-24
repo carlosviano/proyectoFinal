@@ -5,7 +5,6 @@ const controller = {};
 
 controller.addToList = async (req, res) => {
   const { name, type } = req.body;
-  console.log(req.body);
   if (!name || !type) return res.status(400).send("Error receiving body");
 
   try {
@@ -30,7 +29,6 @@ controller.addToList = async (req, res) => {
 };
 
 controller.updateList = async (req, res) => {
-  console.log(req.body)
   try {
     if (Object.entries(req.body).length === 0)
       return res.sendStatus(400).send("Error al recibir el body");
@@ -45,7 +43,6 @@ controller.updateList = async (req, res) => {
 
 controller.removeShow = async (req, res) => {
   const { show } = req.body
-  console.log(req.body)
   try {
     const removeShow = await dao.removeShow(show, req.params.id);
 

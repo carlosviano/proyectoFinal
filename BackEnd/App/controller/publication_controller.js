@@ -7,7 +7,6 @@ const controller = {};
 
 controller.addPublication = async (req, res) => {
   const { title, text } = req.body;
-  console.log(req.body);
   if (!title || !text) return res.status(400).send("Error when receiving body");
 
   try {
@@ -17,9 +16,7 @@ controller.addPublication = async (req, res) => {
       return res.status(400).send("No se ha cargado ningun archivo");
     }
 
-    console.log(req.files, "files");
     const images = !req.files.length ? [req.files.file] : req.files.file;
-    console.log(images, "images");
     images.forEach(async (image) => {
       let uploadPath = __dirname + "/public/images/products/" + image.name;
       let BBDDPath = "images/products/" + image.name;

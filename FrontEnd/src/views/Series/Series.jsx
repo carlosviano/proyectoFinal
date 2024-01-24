@@ -13,7 +13,6 @@ export default function Series() {
       if (response.status === 200) {
         const series = await response.json();
         setShowsList(series.results);
-        console.log("esta es la respuesta de json", series.results, showsList);
       } else {
         alert("There was an error when trying to display the shows");
       }
