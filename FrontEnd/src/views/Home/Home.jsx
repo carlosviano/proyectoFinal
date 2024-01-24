@@ -16,7 +16,6 @@ export default function Home() {
       if (response.status === 200) {
         const shows = await response.json();
         setCarouselShows(shows.items);
-        console.log("esta es la respuesta de json", shows.items);
       } else {
         alert("There was an error when trying to display the shows");
       }

@@ -25,7 +25,6 @@ export default function Card({
   function toggleModal(e) {
     e.stopPropagation();
     setShowModal(!showModal);
-    console.log(showModal);
   }
 
   function ToggleRemoveMessage() {

@@ -45,7 +45,6 @@ export function LoginContextProvider({ children }, newUserLogin) {
       alert("Email o password incorrectos");
     }
   }
-  console.log(authorization);
 
   function logOutAcc() {
     window.localStorage.removeItem(MY_AUTH_APP);

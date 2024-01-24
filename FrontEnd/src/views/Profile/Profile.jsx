@@ -56,7 +56,6 @@ export default function Profile() {
       );
       if (response.status === 200) {
         const usuario = await response.json();
-        console.log(usuario, "esto es get user");
         setUser(usuario);
       } else {
         console.log("There was an error loading userData");

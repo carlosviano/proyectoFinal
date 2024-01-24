@@ -282,8 +282,6 @@ userQueries.followUserById = async (user, id) => {
 
 userQueries.followSelf = async (id) => {
   let conn = null;
-
-  console.log(id, "esto es id en followself");
   try {
     conn = await db.createConnection();
     let userObj = {

@@ -17,7 +17,6 @@ export default function RegisterForm() {
       },
       body: JSON.stringify(values),
     }).then((response) => {
-      console.log(response.status);
       if (response.status === 400) {
         deniedAlert();
       } else if (response.status === 200) {

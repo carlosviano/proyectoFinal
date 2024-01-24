@@ -47,7 +47,6 @@ export default function MovieDetails() {
   }, []);
 
   async function addToList() {
-    console.log(show[0], "esto es show");
     const response = await fetch(
       `http://localhost:3000/list/add/${authorization.iduser}`,
       {

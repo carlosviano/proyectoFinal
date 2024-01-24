@@ -16,12 +16,10 @@ export default function RegisterForm() {
       },
       body: JSON.stringify(values),
     }).then((response) => {
-      console.log(response.status);
       if (response.status === 400) {
         alert("Error al recibir el body");
       } else if (response.status === 200) {
         alert(`Usuario ${values.name} registrado correctamente`);
-        console.log(values);
       } else if (response.status === 409) {
         alert("Usuario ya registrado");
       }

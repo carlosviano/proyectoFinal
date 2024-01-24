@@ -14,7 +14,6 @@ export default function TopRatedMovies() {
       if (response.status === 200) {
         const movies = await response.json();
         setMoviesList(movies.results);
-        console.log("esta es la respuesta de json", movies.results);
       } else {
         alert("There was an error when trying to display the shows");
       }

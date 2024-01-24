@@ -13,21 +13,17 @@ export default function AddPostForm({ setChangeFeed, changeFeed }) {
 
   const onSubmit = (values, actions) => {
     let formdata = new FormData();
-    console.log(values.file.name, "probando para la imagen");
     formdata.append("file", values.file);
     formdata.append("title", values.title);
     formdata.append("text", values.text);
-    console.log(formdata, "this is form data");
     fetch(`http://localhost:3000/publication/${authorization.iduser}`, {
       method: "POST",
       body: formdata,
     }).then((response) => {
-      console.log(response.status);
       if (response.status === 400) {
         alert("Error al recibir el body");
       } else if (response.status === 200) {
         setChangeFeed(!changeFeed);
-        console.log(values);
       } else if (response.status === 409) {
         alert("Usuario ya registrado");
       }
@@ -76,7 +72,6 @@ export default function AddPostForm({ setChangeFeed, changeFeed }) {
                 accept="image/*"
                 value={undefined}
                 onChange={(event) => {
-                  console.log(event.target);
                   setFieldValue("file", event.target.files[0]);
                   setPreview(values.file.name);
                 }}

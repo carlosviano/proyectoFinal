@@ -50,7 +50,6 @@ export default function Browse() {
   }
 
   async function addRecentUser(id) {
-    console.log(id, "esto es el id del usuario");
     const response = await fetch(
       `http://localhost:3000/user/recent/user/${authorization.iduser}`,
       {
@@ -69,7 +68,6 @@ export default function Browse() {
   }
 
   async function addRecentShow(item) {
-    console.log(item, "esto es item");
     const response = await fetch(
       `http://localhost:3000/user/recent/show/${authorization.iduser}`,
       {
@@ -99,7 +97,6 @@ export default function Browse() {
       if (response.status === 200) {
         const userHistory = await response.json();
         setRecentUsers(userHistory);
-        console.log(userHistory, "esto es el historial de usuario");
       } else {
         console.log("Error when trying to fetch user history");
       }

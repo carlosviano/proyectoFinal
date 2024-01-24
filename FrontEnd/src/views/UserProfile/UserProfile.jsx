@@ -34,7 +34,6 @@ export default function UserProfile() {
       if (response.status === 200) {
         const usuario = await response.json();
         setUserData(usuario);
-        console.log(usuario, "esta es la info de usuario");
       } else {
         console.log("There was an error loading userData");
       }
@@ -111,7 +110,6 @@ export default function UserProfile() {
         setUserStats(userData);
       } else {
         alert("Error when fetching userData");
-        console.log(response.status);
       }
     }
     fetchStats();

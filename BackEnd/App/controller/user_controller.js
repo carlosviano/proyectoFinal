@@ -55,7 +55,6 @@ controller.addRecentShow = async (req, res) => {
     return res.sendStatus(400).send("Error al recibir el body");
   try {
     const addRecentShow = await dao.addRecentShow(req.body, req.params.id)
-    console.log(addRecentShow)
     return res.send(`Recent show con id ${addRecentShow} agregado`);
   } catch (e) {
     console.log(e.message)
@@ -72,7 +71,6 @@ controller.loginUser = async (req, res) => {
     let user = await dao.getUserByEmail(email);
     if (user.length <= 0) return res.status(404).send("usuario no registrado");
     const clientPassword = md5(password);
-    console.log(user);
 
     [user] = user;
 
@@ -103,7 +101,6 @@ controller.loginUser = async (req, res) => {
 };
 
 controller.updateImage = async (req, res) => {
-  console.log(req.files);
   try {
     if (req.files === null) return;
 
@@ -175,7 +172,6 @@ controller.updateProfile = async (req, res) => {
 controller.getUserByUsername = async (req, res) => {
   const { username } = req.body;
 
-  console.log(req.body);
 
   if (!username) return res.status(400).send("Error al recibir el body");
   try {
@@ -203,7 +199,6 @@ controller.getFollows = async (req, res) => {
 
 controller.unfollowUserById = async (req, res) => {
   const { user } = req.body;
-  console.log(req.body);
   try {
     const unfollow = await dao.unfollowUserById(user, req.params.id);
 
@@ -243,7 +238,6 @@ controller.deleteShowsHistory = async (req, res) => {
 
 controller.followUser = async (req, res) => {
   const { user } = req.body;
-  console.log();
   try {
     const startToFollow = await dao.followUserById(user, req.params.id);
 

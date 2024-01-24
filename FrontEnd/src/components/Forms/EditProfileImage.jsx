@@ -17,7 +17,6 @@ export default function EditProfileForm() {
       method: "PATCH",
       body: formdataImage,
     }).then((response) => {
-      console.log(response.status);
       if (response.status === 400) {
         alert("Error when updating image");
       } else if (response.status === 200) {
@@ -26,7 +25,6 @@ export default function EditProfileForm() {
     });
     actions.resetForm();
     setChangeUserInfo(!changeUserInfo);
-    console.log(values.name);
   };
   useEffect(() => {}, [changeUserInfo]);
 

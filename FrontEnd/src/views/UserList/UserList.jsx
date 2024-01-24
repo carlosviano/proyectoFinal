@@ -23,13 +23,11 @@ export default function UserList() {
       if (response.status === 200) {
         const usuario = await response.json();
         setUser(usuario);
-        console.log("Esto es la response.json", usuario);
       } else {
         console.log("There was an error loading userData");
       }
     }
     getUser();
-    console.log(user.username);
   }, [changeList]);
   return (
     <div className="userListDetailsMainContainer">
