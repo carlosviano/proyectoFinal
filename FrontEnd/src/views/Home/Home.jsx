@@ -1,17 +1,17 @@
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 import "./Home.css";
 import img from "../../components/Banners/SmallBanner/Images/QueensGambitHorizontal.jpg";
 import img2 from "../../components/Banners/SmallBanner/Images/pulpFiction.jpg";
-import { useEffect, useRef, useState } from "react";
+import { useEffect,useState } from "react";
 import BannerNoImage from "../../components/Banners/BannerNoImage/BannerNoImage";
 import ImageBanner from "../../components/Banners/ImageBanner/ImageBanner";
 import SmallBanner from "../../components/Banners/SmallBanner/SmallBanner";
-import CarouselCard from "../../components/Card/CarouselCard/CarouselCard";
+// import CarouselCard from "../../components/Card/CarouselCard/CarouselCard";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function Home() {
   const [carouselShows, setCarouselShows] = useState([]);
@@ -64,7 +64,7 @@ export default function Home() {
         <div className="bannerContainerSecondaryLeft">
           <div className="bannerContainerSecondaryLeftTitle"></div>
           <div className="bannerSecondaryLeftSlider">
-            <Swiper
+            {/* <Swiper
               spaceBetween={30}
               centeredSlides={true}
               autoplay={{
@@ -98,7 +98,7 @@ export default function Home() {
                     />
                   </SwiperSlide>
                 ))}
-            </Swiper>
+            </Swiper> */}
           </div>
         </div>
         <div className="bannerContainerSecondaryRight">
